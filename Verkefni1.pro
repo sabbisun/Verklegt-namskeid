@@ -8,7 +8,6 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    individual.cpp \
     people.cpp
 
 HEADERS += \
