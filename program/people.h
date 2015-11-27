@@ -16,10 +16,10 @@ class People
 public:
     People(const string filename);
     void addIndi(Individual& i1);
-    void saveFile(const string filename);
     Individual getIndi(const int i) const;
 private:
     vector <Individual> person;
+    void saveFile(const string filename);
 
 };
 
