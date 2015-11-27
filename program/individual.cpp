@@ -34,6 +34,8 @@ istream& operator >> (istream& ins, Individual& id)
     getline(ins, id.name);
     cout << "Gender (m/f): ";
     ins >> id.gender;
+    cout << "Year of birth: ";
+    ins >> id.birth;
     cout << "Is the individual alive?(y/n) ";
     cin >> ans;
     if (ans == 'n') {
@@ -52,7 +54,7 @@ istream& operator >> (istream& ins, Individual& id)
 bool Individual::isDead()
 {
     if (alive == 1) {
-        //cout << "The individual is still alive." << endl;
+        //cout << "The individual is alive." << endl
         return false;
     }
     else {
