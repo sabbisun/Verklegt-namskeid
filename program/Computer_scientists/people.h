@@ -18,11 +18,11 @@ public:
 
     void searchMenu();
     void addIndi(Individual& i1);
+    void saveFile(const string filename);
     Individual getIndi(const int i) const;
 
 private:
     vector <Individual> person;
-    void saveFile(const string filename);
 
 };
 

@@ -12,8 +12,9 @@ People::People(const string filename)
     string first ,last;
     int byear, dyear;
     char gender;
-    while(getline(ins,last))
+    while(!ins.eof())
     {
+      getline(ins,last);
       getline(ins,first);
       ins >> gender;
       ins >> byear;
@@ -21,6 +22,7 @@ People::People(const string filename)
       Individual i1(last,first,gender,byear,dyear);
       person.push_back(i1);
     }
+
     ins.close();
 
 }
@@ -28,27 +30,27 @@ void People::addIndi(Individual& i1)
 {
 
     person.push_back(i1);
-    saveFile("people.txt");
-
 
 
 }
 void People::saveFile(const string filename)
 {
     ofstream outs;
-    outs.open(filename.c_str(), ios::app);
+    outs.open(filename.c_str());
     if(outs.fail())
     {
         cout << "Something went wrong with opening the output file" << endl;
         exit(1);
     }
-    outs << person[person.size()-1].getSurname() << endl;
-    outs << person[person.size()-1].getName() << endl;
-    outs << person[person.size()-1].getGender() << endl;
-    outs << person[person.size()-1].getBirth() << endl;
-    outs << person[person.size()-1].getDeath() <<endl;
-    cout << endl;
-    outs.close();
+    for(unsigned int i = 0; i<person.size();i++)
+    {
+        outs << person[i].getSurname() << endl;
+        outs << person[i].getName() << endl;
+        outs << person[i].getGender() << endl;
+        outs << person[i].getBirth() << endl;
+        outs << person[i].getDeath() <<endl;
+
+    }
 }
 Individual People::getIndi(const int i) const
 {
@@ -63,7 +65,7 @@ void People::searchMenu(){
          << "(G) Gender" << endl
         << "(B) Year of Birth" << endl
         << "(D) Year of Death" << endl;
-    cout << "Select a letter:";
+    cout << "Select a number:";
     cin >> choice;
 
     switch(choice){
