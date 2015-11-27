@@ -3,8 +3,12 @@
 Verkefni
 ithordis
 siggnja
+saevar
+
+sending
 
 blablabalbalablab
+
 
 
 
