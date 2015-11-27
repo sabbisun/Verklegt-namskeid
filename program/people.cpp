@@ -1,5 +1,7 @@
 #include "people.h"
 
+People::People(){}
+
 People::People(const string filename)
 {
     ifstream ins;
@@ -58,6 +60,7 @@ Individual People::getIndi(const int i) const
 
 }
 
+
 void People::searchMenu(){
     char choice;
     cout << "Search by: " << endl;
@@ -80,4 +83,20 @@ void People::searchMenu(){
     default:;
     }
 
+}
+
+void People::searchName(){
+    string searchStr = "";
+    People temp;
+    cout << "Enter a name to search for:" << endl;
+    getline(cin, searchStr);
+
+    for(unsigned int i = 0; i < person.size(); i++){
+        string tempStr = person[i].getName() + " " + person[i].getName();
+        if(true){
+            Individual tempInd;
+            tempInd = getIndi(i);
+            temp.addIndi(tempInd);
+        }
+    }
 }

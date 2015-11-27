@@ -15,8 +15,10 @@ class People
 {
 public:
     People(const string filename);
+    People();
 
     void searchMenu();
+    void searchName();
     void addIndi(Individual& i1);
     void saveFile(const string filename);
     Individual getIndi(const int i) const;
