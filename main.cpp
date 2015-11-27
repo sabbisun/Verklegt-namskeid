@@ -1,5 +1,6 @@
 #include <QCoreApplication>
 #include<iostream>
+#include "people.h"
 
 using namespace std;
 
