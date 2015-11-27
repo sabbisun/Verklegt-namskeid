@@ -91,7 +91,7 @@ void People::searchName(){
 
     for(unsigned int i = 0; i < person.size(); i++){
         string tempStr = person[i].getName() + " " + person[i].getName();
-        if(true){
+        if(tempStr.find(searchStr) != string::npos){
             Individual tempInd;
             tempInd = getIndi(i);
             temp.addIndi(tempInd);
