@@ -16,6 +16,10 @@ class People
 public:
     People(const string filename);
     void searchMenu();
+    //searchName();
+    //searchGender();
+    //searchBirth();
+    //searchDeath();
 private:
     vector <Individual> person;
 

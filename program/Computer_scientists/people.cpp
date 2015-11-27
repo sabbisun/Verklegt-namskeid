@@ -39,17 +39,15 @@ void People::searchMenu(){
     cin >> choice;
 
     switch(choice){
-        case N:
+        case 'N':
         break;
-        case G:
+        case 'G':
         break;
-        case B:
+        case 'B':
         break;
-        case D:
+        case 'D':
         break;
-    default:
-
+    default:;
     }
-
 
 }
