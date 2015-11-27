@@ -14,7 +14,6 @@ public:
     bool isDead();
     friend ostream& operator << (ostream& outs, Individual& id);
     friend istream& operator >> (istream& ins, Individual& id);
-    //friend bool operator < (Individual& id1, Individual& id2);
     
     string getName();
     string getSurname();
