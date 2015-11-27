@@ -4,7 +4,7 @@ Individual::Individual() {
     //empty
 }
 
-Individual::Individual(string nam, string surnam, char gend, int bir, int dea) {
+Individual::Individual(string surnam, string nam, char gend, int bir, int dea) {
     name = nam;
     surname = surnam;
     gender = gend;
@@ -14,13 +14,13 @@ Individual::Individual(string nam, string surnam, char gend, int bir, int dea) {
 
 ostream& operator << (ostream& outs, Individual& id)
 {
-    cout << "Name: " << id.surname << ", " << id.name << endl;
-    cout << "Gender: " << id.gender << endl;
-    cout << "Year of birth: " << id.birth << endl;
+    outs << "Name: " << id.surname << ", " << id.name << endl;
+    outs << "Gender: " << id.gender << endl;
+    outs << "Year of birth: " << id.birth << endl;
     if (id.death == 0)
-        cout << "The individual is still alive." << endl;
+        outs << "The individual is still alive." << endl;
     else
-        cout << "Year of death: " << id.death << endl;
+        outs << "Year of death: " << id.death << endl;
     
     return outs;
 }
@@ -36,7 +36,7 @@ istream& operator >> (istream& ins, Individual& id)
     ins >> id.gender;
     cout << "Is the individual alive?(y/n) ";
     cin >> ans;
-    if (ans == 'y') {
+    if (ans == 'n') {
         cout << "Year of death: ";
         ins >> id.death;
         id.alive = 1;
