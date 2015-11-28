@@ -24,7 +24,6 @@ People::People(const string filename)
       person.push_back(i1);
     }
     ins.close();
-
 }
 void People::addIndi(Individual& i1)
 {
@@ -52,12 +51,11 @@ void People::saveFile(const string filename)
     cout << endl;
     outs.close();
 }
+
 Individual People::getIndi(const int i) const
 {
     return person[i];
-
 }
-
 
 void People::searchMenu(){
     char choice;
@@ -66,21 +64,24 @@ void People::searchMenu(){
          << "(G) Gender" << endl
         << "(B) Year of Birth" << endl
         << "(D) Year of Death" << endl;
-    cout << "Select a letter:";
+    cout << "Select a letter: ";
     cin >> choice;
 
-    switch(choice){
-        case 'N':
-        break;
-        case 'G':
-        break;
-        case 'B':
-        break;
-        case 'D':
-        break;
-    default:;
+    switch(choice) {
+        case 'n':
+        case 'N':   searchName();
+                    break;
+        case 'g':
+        case 'G':   searchGender();
+                    break;
+        case 'b':
+        case 'B':   searchBirth();
+                    break;
+        case 'd':
+        case 'D':   searchDeath();
+                    break;
+        default:;
     }
-
 }
 
 void People::searchName(){
@@ -88,7 +89,6 @@ void People::searchName(){
     People temp;
     cout << "Enter a name to search for:" << endl;
     getline(cin, searchStr);
-
     for(unsigned int i = 0; i < person.size(); i++){
         string tempStr = person[i].getName() + " " + person[i].getName();
         if(tempStr.find(searchStr) != string::npos){
@@ -98,3 +98,59 @@ void People::searchName(){
         }
     }
 }
+
+void People::searchGender()
+{
+    bool found = false;
+    char findGender, ansGender;
+    cout << "Enter which gender you want to search for (m/f): ";
+    cin >> ansGender;
+    cout << "--- The following people match your search ---" << endl;
+    for (unsigned int i = 0; i < person.size(); i++) {
+        findGender = person[i].getGender();
+        if (ansGender == findGender) {
+            cout << person[i] << endl;
+            found = true;
+        }
+    }
+    if (found == false)
+        cout << "No one matched your search." << endl;
+}
+
+void People::searchBirth()
+{
+    bool found = false;
+    int findYear, ansYear;
+    cout << "Enter a birth year: ";
+    cin >> ansYear;
+    cout << "--- The following people match your search ---" << endl;
+    for (unsigned int i = 0; i < person.size(); i++) {
+        findYear = person[i].getBirth();
+        if (ansYear == findYear) {
+            cout << person[i] << endl;
+            found = true;
+        }
+    }
+    if (found == false)
+        cout << "No one matched your search." << endl;
+}
+
+void People::searchDeath()
+{
+    bool found = false;
+    int findYear, ansYear;
+    cout << "Enter a death year: ";
+    cin >> ansYear;
+    cout << "--- The following people match your search ---" << endl;
+    for (unsigned int i = 0; i < person.size(); i++) {
+        findYear = person[i].getDeath();
+        if (ansYear == findYear) {
+            cout << person[i] << endl;
+            found = true;
+        }
+    }
+    if (found == false)
+        cout << "No one matched your search." << endl;
+}
+
+
