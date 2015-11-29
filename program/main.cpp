@@ -20,22 +20,12 @@ int main()
 {
     People list(FILENAME);
     char choice;
-
     do {
         ask();
         cin >> choice;
         menu(choice, list);
     } while (legalAns(choice));
-    People p1(FILENAME);
-    /*
-    Individual i1;
-    cin >> i1;
-    p1.addIndi(i1);
 
-<<<<<<< HEAD
-    */
-   //p1.sortByDeathYear();
-   // p1.printVector();
 
 }
 
@@ -127,16 +117,16 @@ void sortMenu(People& p) //spurning hvernig á að vera hægt að sorta
         case 'R':   p.sortAlpabetBack();
                     break;
         case 'b':
-        case 'B':   //
+        case 'B':   p.sortByBirthYear();
                     break;
         case 'd':
-        case 'D':   //
+        case 'D':   p.sortByDeathYear();
                     break;
         case 'f':
-        case 'F':   //
+        case 'F':   p.sortByGenderFemales();
                     break;
         case 'm':
-        case 'M':   //
+        case 'M':   p.sortByGenderMales();
                     break;
         default:;
     }

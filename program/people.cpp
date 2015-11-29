@@ -120,6 +120,40 @@ void People::sortByDeathYear()
     result.printVector();
 
 }
+void People::sortByGenderMales()
+{
+    People r1(*this);
+    People male,female;
+    for(unsigned int j = 0; j<r1.person.size(); j++)
+    {
+      if(r1.getIndi(j).getGender() == 'm')
+      male.person.push_back(r1.person[j]);
+      else
+      female.person.push_back(r1.person[j]);
+    }
+    cout << "--- Reading males ---" << endl;
+    male.sortAlpabetFront();
+    cout << "--- Reading females ---" << endl;
+    female.sortAlpabetFront();
+
+}
+void People::sortByGenderFemales()
+{
+    People r1(*this);
+    People male,female;
+    for(unsigned int j = 0; j<r1.person.size(); j++)
+    {
+      if(r1.getIndi(j).getGender() == 'm')
+      male.person.push_back(r1.person[j]);
+      else
+      female.person.push_back(r1.person[j]);
+    }
+    cout << "--- Reading females ---" << endl;
+    female.sortAlpabetFront();
+    cout << "--- Reading males ---" << endl;
+    male.sortAlpabetFront();
+
+}
 People::People(People& p1)
 {
     for(unsigned int i = 0 ; i < p1.person.size(); i++) {

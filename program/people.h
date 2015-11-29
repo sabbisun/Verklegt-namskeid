@@ -30,6 +30,8 @@ public:
     void sortAlpabetBack();
     void sortByBirthYear();
     void sortByDeathYear();
+    void sortByGenderMales();
+    void sortByGenderFemales();
     void printVector();
 
     string makeLower(string& temp);
