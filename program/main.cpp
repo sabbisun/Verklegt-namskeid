@@ -39,7 +39,7 @@ void ask() {
     cout << "(A) Add to list? " << endl;
     cout << "(B) Search list? " << endl;
     cout << "(C) Print list? " << endl; //fyrst spurt um sort svo print
-    cout << "(D) Change list? " << endl;
+    cout << "(D) Remove from list? " << endl;
 }
 
 void menu(char ans, People& list)

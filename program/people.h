@@ -19,6 +19,10 @@ public:
     People();
 
     void searchName();
+    void searchGender();
+    void searchBirth();
+    void searchDeath();
+
     void addIndi(Individual& i1);
     Individual getIndi(const int i) const;
     void swap(const int i, const int j);
@@ -26,10 +30,7 @@ public:
     void sortAlpabetBack();
     void printVector();
 
-    void searchGender();
-    void searchBirth();
-    void searchDeath();
-
+    string makeLower(string& temp);
 
 private:
     vector <Individual> person;

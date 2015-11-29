@@ -119,90 +119,15 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
     return(t2>t1);
 }
 
-
-/////////////////////////////////////////////////////////////
-
-/*void People::searchMenu(){
-    char choice;
-    cout << "Search by: " << endl;
-    cout << "(N) Name" << endl
-         << "(G) Gender" << endl
-         << "(B) Year of Birth" << endl
-         << "(D) Year of Death" << endl;
-    cout << "Select a letter: ";
-    cin >> choice;
-
-    switch(choice) {
-        case 'n':
-        case 'N':   searchName();
-                    break;
-        case 'g':
-        case 'G':   searchGender();
-                    break;
-        case 'b':
-        case 'B':   searchBirth();
-                    break;
-        case 'd':
-        case 'D':   searchDeath();
-                    break;
-        default:;
-    }
-}
-
-void People::sortMenu()
+string People::makeLower(string& temp)
 {
-    char choice;
-    cout << "Print/Sort by: " << endl;
-    cout << "(A) Alphabetic order" << endl
-         << "(R) Reverse alphabetic order" << endl
-         << "(B) Year of Birth" << endl
-         << "(D) Year of Death" << endl
-         << "(F) Females first, then males" << endl
-         << "(M) Males first, then females" << endl;
-    cout << "Select a letter: ";
-    cin >> choice;
-
-    switch(choice) {
-        case 'a':
-        case 'A':   sortAlpabetFront();
-                    break;
-        case 'r':
-        case 'R':   sortAlpabetBack();
-                    break;
-        case 'b':
-        case 'B':   //
-                    break;
-        case 'd':
-        case 'D':   //
-                    break;
-        case 'f':
-        case 'F':   //
-                    break;
-        case 'm':
-        case 'M':   //
-                    break;
-        default:;
+    //converts temp to all lower letters:
+    for (unsigned int i = 0; i < temp.length(); i++) {
+        if(isupper(temp[i]))
+            temp[i] = tolower(temp[i]);
     }
-
-    printVector();
+    return temp;
 }
-*/
-//////////////////////////////////////////////////////////
-
-/*void People::searchName(){
-    string searchStr = "";
-    People temp;
-    cout << "Enter a name to search for:" << endl;
-    getline(cin, searchStr);
-    for(unsigned int i = 0; i < person.size(); i++){
-        string tempStr = person[i].getName() + " " + person[i].getName();
-        if(tempStr.find(searchStr) != string::npos){
-            Individual tempInd;
-            tempInd = getIndi(i);
-            temp.addIndi(tempInd);
-        }
-    }
-}*/
 
 void People::searchName()
 {
@@ -211,10 +136,12 @@ void People::searchName()
     cin.ignore();   //annars virkar getline ekki
     cout << "Enter a name to search for:" << endl;
     getline(cin, searchStr);
+    searchStr = makeLower(searchStr);
 
     cout << "--- The following people match your search ---" << endl;
     for(unsigned int i = 0; i < person.size(); i++) {
         tempStr = person[i].getName() + " " + person[i].getSurname();
+        tempStr = makeLower(tempStr);
 
         if(tempStr.find(searchStr) != string::npos) {  //if ( . == string::npos) ->not found
             cout << person[i] << endl;
