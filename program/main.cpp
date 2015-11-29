@@ -1,9 +1,32 @@
 #include <QCoreApplication>
-#include<iostream>
+#include <iostream>
 #include "people.h"
 
 const string FILENAME = "people.txt";
 using namespace std;
+
+bool legalAns(char ans);
+//checks if answear is legal, if true then loop continous and program asks again
+void ask();
+//asks what should be done with the list
+void menu(char ans, People& list);
+//call for changes to the list
+
+int main()
+{
+    People list(FILENAME);
+    //Individual i1;
+    //cin >> i1;
+    //list.addIndi(i1);
+
+    char choice;
+    do {
+        ask();
+        cin >> choice;
+        menu(choice, list);
+    } while (legalAns(choice));
+
+}
 
 bool legalAns(char ans) {
     return (ans == 'A' || ans == 'a' || ans == 'B' || ans == 'b' || ans == 'C'
@@ -32,7 +55,7 @@ void menu(char ans, People& list)
                     break;
         case 'c':
         case 'C':   {list.sortMenu();
-                    list.printList();}
+                    list.printVector();}
                     break;
         case 'd':
         case 'D':   //..
@@ -41,20 +64,5 @@ void menu(char ans, People& list)
     }
 }
 
-int main()
-{
-    People list(FILENAME);
-    //Individual i1;
-    //cin >> i1;
-    //list.addIndi(i1);
-
-    char choice;
-    do {
-        ask();
-        cin >> choice;
-        menu(choice, list);
-    } while (legalAns(choice));
-
-}
 
 

@@ -20,6 +20,8 @@ public:
     People();
 
     void searchMenu();
+    void sortMenu();
+
     void searchName();
     void addIndi(Individual& i1);
     Individual getIndi(const int i) const;
@@ -31,6 +33,8 @@ public:
     void searchGender();
     void searchBirth();
     void searchDeath();
+
+
 private:
     vector <Individual> person;
     void saveFile(const string filename);

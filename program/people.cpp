@@ -1,6 +1,6 @@
 #include "people.h"
 
-People::People(){}
+People::People() {}
 
 People::People(const string filename)
 {
@@ -33,12 +33,8 @@ People::People(const string filename)
 }
 void People::addIndi(Individual& i1)
 {
-
     person.push_back(i1);
     saveFile("people.txt");
-
-
-
 }
 void People::saveFile(const string filename)
 {
@@ -109,15 +105,14 @@ void People::swap(const int i, const int j)
     person[i] = person[j];
     person[j] = temp;
 }
- void People::printVector()
+
+void People::printVector()
 {
-
-     for(unsigned int i = 0; i < person.size(); i++)
-     {
-        cout << person[i];
+     for(unsigned int i = 0; i < person.size(); i++) {
+        cout << person[i] << endl;
      }
-
 }
+
 bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
 {
     string s1 = i1.getSurname();
@@ -128,13 +123,14 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
     int t2 = static_cast <int> (c2);
     return(t2>t1);
 }
+
 void People::searchMenu(){
     char choice;
     cout << "Search by: " << endl;
     cout << "(N) Name" << endl
          << "(G) Gender" << endl
-        << "(B) Year of Birth" << endl
-        << "(D) Year of Death" << endl;
+         << "(B) Year of Birth" << endl
+         << "(D) Year of Death" << endl;
     cout << "Select a letter: ";
     cin >> choice;
 
@@ -155,7 +151,46 @@ void People::searchMenu(){
     }
 }
 
-void People::searchName(){
+void People::sortMenu()
+{
+    char choice;
+    cout << "Print/Sort by: " << endl;
+    cout << "(A) Alphabetic order" << endl
+         << "(R) Reverse alphabetic order" << endl
+         << "(B) Year of Birth" << endl
+         << "(D) Year of Death" << endl
+         << "(F) Females first, then males" << endl
+         << "(M) Males first, then females" << endl;
+    cout << "Select a letter: ";
+    cin >> choice;
+
+    switch(choice) {
+        case 'a':
+        case 'A':   sortAlpabetFront();
+                    break;
+        case 'r':
+        case 'R':   sortAlpabetBack();
+                    break;
+        case 'b':
+        case 'B':   //
+                    break;
+        case 'd':
+        case 'D':   //
+                    break;
+        case 'f':
+        case 'F':   //
+                    break;
+        case 'm':
+        case 'M':   //
+                    break;
+        default:;
+    }
+
+    printVector();
+}
+
+
+/*void People::searchName(){
     string searchStr = "";
     People temp;
     cout << "Enter a name to search for:" << endl;
@@ -168,6 +203,27 @@ void People::searchName(){
             temp.addIndi(tempInd);
         }
     }
+}*/
+
+void People::searchName()
+{
+    bool found = false;
+    string tempStr, searchStr = "";
+    cin.ignore();   //annars virkar getline ekki
+    cout << "Enter a name to search for:" << endl;
+    getline(cin, searchStr);
+
+    cout << "--- The following people match your search ---" << endl;
+    for(unsigned int i = 0; i < person.size(); i++) {
+        tempStr = person[i].getName() + " " + person[i].getSurname();
+
+        if(tempStr.find(searchStr) != string::npos) {  //if ( . == string::npos) ->not found
+            cout << person[i] << endl;
+            found = true;
+        }
+    }
+    if (found == false)
+        cout << "No one matched your search." << endl;
 }
 
 void People::searchGender()
