@@ -22,10 +22,10 @@ public:
     bool isDead();
     friend ostream& operator << (ostream& outs, Individual& id);
     friend istream& operator >> (istream& ins, Individual& id);
-    
-    string getName();
-    string getSurname()const;
-    char getGender();
+
+    string getName() const;
+    string getSurname() const;
+    char getGender() const;
     int getBirth() const;
     int getDeath() const;
 };

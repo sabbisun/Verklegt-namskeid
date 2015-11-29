@@ -16,11 +16,13 @@ class People
 public:
     People(const string filename);
     People(People& p1);
-    //void searchMenu();
     People();
 
-    void searchMenu();
     void searchName();
+    void searchGender();
+    void searchBirth();
+    void searchDeath();
+    void searchMenu();
     void addIndi(Individual& i1);
     Individual getIndi(const int i) const;
     void swap(const int i, const int j);
@@ -30,9 +32,8 @@ public:
     void sortByDeathYear();
     void printVector();
 
-    void searchGender();
-    void searchBirth();
-    void searchDeath();
+    string makeLower(string& temp);
+
 private:
     vector <Individual> person;
     void saveFile(const string filename);
