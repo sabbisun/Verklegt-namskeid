@@ -119,7 +119,10 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
     return(t2>t1);
 }
 
-void People::searchMenu(){
+
+/////////////////////////////////////////////////////////////
+
+/*void People::searchMenu(){
     char choice;
     cout << "Search by: " << endl;
     cout << "(N) Name" << endl
@@ -183,7 +186,8 @@ void People::sortMenu()
 
     printVector();
 }
-
+*/
+//////////////////////////////////////////////////////////
 
 /*void People::searchName(){
     string searchStr = "";

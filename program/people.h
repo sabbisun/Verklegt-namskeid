@@ -16,11 +16,7 @@ class People
 public:
     People(const string filename);
     People(People& p1);
-    //void searchMenu();
     People();
-
-    void searchMenu();
-    void sortMenu();
 
     void searchName();
     void addIndi(Individual& i1);

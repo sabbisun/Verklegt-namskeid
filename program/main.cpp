@@ -11,6 +11,10 @@ void ask();
 //asks what should be done with the list
 void menu(char ans, People& list);
 //call for changes to the list
+void searchMenu(People& p);
+//
+void sortMenu(People& p);
+//
 
 int main()
 {
@@ -50,10 +54,10 @@ void menu(char ans, People& list)
                     }
                     break;
         case 'b':
-        case 'B':   list.searchMenu();
+        case 'B':   searchMenu(list);
                     break;
         case 'c':
-        case 'C':   {list.sortMenu();
+        case 'C':   {sortMenu(list);
                     list.printVector();}
                     break;
         case 'd':
@@ -63,3 +67,68 @@ void menu(char ans, People& list)
     }
 }
 
+void searchMenu(People& p)
+{
+    char choice;
+    cout << "Search by: " << endl;
+    cout << "(N) Name" << endl
+         << "(G) Gender" << endl
+         << "(B) Year of Birth" << endl
+         << "(D) Year of Death" << endl;
+    cout << "Select a letter: ";
+    cin >> choice;
+
+    switch(choice) {
+        case 'n':
+        case 'N':   p.searchName();
+                    break;
+        case 'g':
+        case 'G':   p.searchGender();
+                    break;
+        case 'b':
+        case 'B':   p.searchBirth();
+                    break;
+        case 'd':
+        case 'D':   p.searchDeath();
+                    break;
+        default:;
+    }
+}
+
+void sortMenu(People& p) //spurning hvernig á að vera hægt að sorta
+{
+    char choice;
+    cout << "Print/Sort by: " << endl;
+    cout << "(A) Alphabetic order" << endl
+         << "(R) Reverse alphabetic order" << endl
+         << "(B) Year of Birth" << endl
+         << "(D) Year of Death" << endl
+         << "(F) Females first, then males" << endl
+         << "(M) Males first, then females" << endl;
+    cout << "Select a letter: ";
+    cin >> choice;
+
+    switch(choice) {
+        case 'a':
+        case 'A':   p.sortAlpabetFront();
+                    break;
+        case 'r':
+        case 'R':   p.sortAlpabetBack();
+                    break;
+        case 'b':
+        case 'B':   //
+                    break;
+        case 'd':
+        case 'D':   //
+                    break;
+        case 'f':
+        case 'F':   //
+                    break;
+        case 'm':
+        case 'M':   //
+                    break;
+        default:;
+    }
+
+    p.printVector();
+}
