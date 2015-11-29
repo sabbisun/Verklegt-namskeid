@@ -24,7 +24,7 @@ public:
     friend istream& operator >> (istream& ins, Individual& id);
     
     string getName();
-    string getSurname();
+    string getSurname()const;
     char getGender();
     int getBirth();
     int getDeath();

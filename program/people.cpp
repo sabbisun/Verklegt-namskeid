@@ -10,17 +10,24 @@ People::People(const string filename)
         exit(1);
     }
     string first ,last;
-    int byear, dyear;
+    int byear, dyear,count=0;
     char gender;
     while(getline(ins,last))
     {
+      if(last == "\0")
+      {
+          getline(ins,last);
+      }
       getline(ins,first);
       ins >> gender;
       ins >> byear;
       ins >> dyear;
       Individual i1(last,first,gender,byear,dyear);
+
       person.push_back(i1);
+      count ++;
     }
+    cout << count << endl;
     ins.close();
 
 }
@@ -55,27 +62,55 @@ Individual People::getIndi(const int i) const
     return person[i];
 
 }
+void People::sortAlpabetFront()
+{
+     People result(*this);
+     for(unsigned int i = 1 ; i < result.person.size(); i++)
+     {
+         for(unsigned int j = 0; j < result.person.size(); j++)
+         {
+             if(result.checkIndiOrder(result.person[i],result.person[j]))
+             {
+                result.swap(j,i);
+             }
 
-void People::searchMenu(){
-    char choice;
-    cout << "Search by: " << endl;
-    cout << "(N) Name" << endl
-         << "(G) Gender" << endl
-        << "(B) Year of Birth" << endl
-        << "(D) Year of Death" << endl;
-    cout << "Select a letter:";
-    cin >> choice;
+         }
+     }
+    result.printVector();
 
-    switch(choice){
-        case 'N':
-        break;
-        case 'G':
-        break;
-        case 'B':
-        break;
-        case 'D':
-        break;
-    default:;
+}
+
+People::People(People& p1)
+{
+    for(unsigned int i = 0 ; i < p1.person.size(); i++)
+    {
+       person.push_back(p1.person[i]);
+
     }
+}
+void People::swap(const int i, const int j)
+{
+    Individual temp = person[i];
+    person[i] = person[j];
+    person[j] = temp;
+}
+ void People::printVector()
+{
+
+     for(unsigned int i = 0; i < person.size(); i++)
+     {
+        cout << person[i];
+     }
+
+}
+bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
+{
+    string s1 = i1.getSurname();
+    string s2 = i2.getSurname();
+    char c1 = tolower(s1[0]);
+    char c2 = tolower(s2[0]);
+    int t1 = static_cast <int> (c1);
+    int t2 = static_cast <int> (c2);
+    return(t2>t1);
 
 }

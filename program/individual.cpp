@@ -68,7 +68,7 @@ string Individual::getName() {
     return name;
 }
 
-string Individual::getSurname() {
+string Individual::getSurname()const {
     return surname;
 }
 
