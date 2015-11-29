@@ -15,19 +15,17 @@ class People
 {
 public:
     People(const string filename);
-<<<<<<< HEAD
     People(People& p1);
     //void searchMenu();
-=======
     People();
 
     void searchMenu();
     void searchName();
->>>>>>> 1734bc8766a34f6e623e13f3d0fbda2ef47773e8
     void addIndi(Individual& i1);
     Individual getIndi(const int i) const;
     void swap(const int i, const int j);
     void sortAlpabetFront();
+    void sortAlpabetBack();
     void printVector();
 
     void searchGender();

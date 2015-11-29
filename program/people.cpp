@@ -12,24 +12,23 @@ People::People(const string filename)
         exit(1);
     }
     string first ,last;
-    int byear, dyear,count=0;
+    int byear, dyear;
     char gender;
     while(getline(ins,last))
     {
+
       if(last == "\0")
       {
           getline(ins,last);
       }
+
       getline(ins,first);
       ins >> gender;
       ins >> byear;
       ins >> dyear;
       Individual i1(last,first,gender,byear,dyear);
-
       person.push_back(i1);
-      count ++;
     }
-    cout << count << endl;
     ins.close();
 }
 void People::addIndi(Individual& i1)
@@ -78,10 +77,24 @@ void People::sortAlpabetFront()
          }
      }
     result.printVector();
+}
+void People::sortAlpabetBack()
+{
+    People result(*this);
+    for(unsigned int i = 1 ; i < result.person.size(); i++)
+    {
+        for(unsigned int j = 0; j < result.person.size(); j++)
+        {
+            if(result.checkIndiOrder(result.person[j],result.person[i]))
+            {
+               result.swap(j,i);
+            }
 
+        }
+    }
+   result.printVector();
 }
 
-<<<<<<< HEAD
 People::People(People& p1)
 {
     for(unsigned int i = 0 ; i < p1.person.size(); i++)
@@ -114,7 +127,7 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
     int t1 = static_cast <int> (c1);
     int t2 = static_cast <int> (c2);
     return(t2>t1);
-=======
+}
 void People::searchMenu(){
     char choice;
     cout << "Search by: " << endl;
@@ -192,7 +205,6 @@ void People::searchBirth()
     if (found == false)
         cout << "No one matched your search." << endl;
 }
->>>>>>> 1734bc8766a34f6e623e13f3d0fbda2ef47773e8
 
 void People::searchDeath()
 {

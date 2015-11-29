@@ -181,7 +181,9 @@ debug/main.o: ../main.cpp C:/Qt/5.5/mingw492_32/include/QtCore/QCoreApplication 
 		C:/Qt/5.5/mingw492_32/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qeventloop.h
+		C:/Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
+		../people.h \
+		../individual.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\main.cpp
 
 debug/people.o: ../people.cpp ../people.h \
