@@ -16,9 +16,7 @@ People::People(const string filename)
     char gender;
     while(getline(ins,last))
     {
-
-      if(last == "\0")
-      {
+      if(last == "\0") {
           getline(ins,last);
       }
 
@@ -83,9 +81,8 @@ void People::sortAlpabetBack()
         {
             if(result.checkIndiOrder(result.person[j],result.person[i]))
             {
-               result.swap(j,i);
+                result.swap(j,i);
             }
-
         }
     }
    result.printVector();
@@ -93,10 +90,8 @@ void People::sortAlpabetBack()
 
 People::People(People& p1)
 {
-    for(unsigned int i = 0 ; i < p1.person.size(); i++)
-    {
+    for(unsigned int i = 0 ; i < p1.person.size(); i++) {
        person.push_back(p1.person[i]);
-
     }
 }
 void People::swap(const int i, const int j)

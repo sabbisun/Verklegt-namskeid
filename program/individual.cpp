@@ -64,23 +64,23 @@ bool Individual::isDead()
     }
 }
 
-string Individual::getName() {
+string Individual::getName() const {
     return name;
 }
 
-string Individual::getSurname()const {
+string Individual::getSurname() const {
     return surname;
 }
 
-char Individual::getGender() {
+char Individual::getGender() const {
     return gender;
 }
 
-int Individual::getBirth() {
+int Individual::getBirth() const {
     return birth;
 }
 
-int Individual::getDeath() {
+int Individual::getDeath() const {
     return death;
 }
 
