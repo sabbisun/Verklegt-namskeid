@@ -33,7 +33,7 @@ public:
     void sortByGenderMales();
     void sortByGenderFemales();
     void printVector();
-
+    People removeIndi(People& vec);
     string makeLower(string& temp);
 
 private:
