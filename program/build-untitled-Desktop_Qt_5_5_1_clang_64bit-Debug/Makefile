@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = untitled1.0.0
-DISTDIR = /Users/thordis/Verklegt-namskeid/program/build-untitled-Desktop_Qt_5_5_1_MinGW_32bit-Debug/.tmp/untitled1.0.0
+DISTDIR = /Users/thordis/Verklegt-namskeid/program/build-untitled-Desktop_Qt_5_5_1_clang_64bit-Debug/.tmp/untitled1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -headerpad_max_install_names -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wl,-rpath,/Users/thordis/Qt/5.5/clang_64/lib
 LIBS          = $(SUBLIBS) -F/Users/thordis/Qt/5.5/clang_64/lib -framework QtCore -framework DiskArbitration -framework IOKit 
