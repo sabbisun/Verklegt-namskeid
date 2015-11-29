@@ -26,8 +26,8 @@ public:
     string getName();
     string getSurname()const;
     char getGender();
-    int getBirth();
-    int getDeath();
+    int getBirth() const;
+    int getDeath() const;
 };
 
 #endif // INDIVIDUAL_H

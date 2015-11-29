@@ -18,7 +18,7 @@ int main()
 
 <<<<<<< HEAD
     */
-   p1.sortAlpabetBack();
+   p1.sortByDeathYear();
    // p1.printVector();
 
 

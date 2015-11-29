@@ -94,7 +94,39 @@ void People::sortAlpabetBack()
     }
    result.printVector();
 }
+void People::sortByBirthYear()
+{
+    People result(*this);
+    for(unsigned int i = 1 ; i < result.person.size(); i++)
+    {
+        for(unsigned int j = 0; j < result.person.size(); j++)
+        {
+            if(result.checkBirthYearOrder(result.person[j],result.person[i]))
+            {
+               result.swap(j,i);
+            }
 
+        }
+    }
+   result.printVector();
+}
+void People::sortByDeathYear()
+{
+    People result(*this);
+    for(unsigned int i = 1 ; i < result.person.size(); i++)
+    {
+        for(unsigned int j = 0; j < result.person.size(); j++)
+        {
+            if(result.checkDeathYearOrder(result.person[j],result.person[i]))
+            {
+               result.swap(j,i);
+            }
+
+        }
+    }
+    result.printVector();
+
+}
 People::People(People& p1)
 {
     for(unsigned int i = 0 ; i < p1.person.size(); i++)
@@ -128,6 +160,17 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
     int t2 = static_cast <int> (c2);
     return(t2>t1);
 }
+bool People::checkBirthYearOrder(const Individual& i1, const Individual& i2)
+{
+    return(i1.getBirth()>i2.getBirth());
+
+}
+bool People::checkDeathYearOrder(const Individual& i1, const Individual& i2)
+{
+    return(i1.getDeath()>i2.getDeath());
+
+}
+
 void People::searchMenu(){
     char choice;
     cout << "Search by: " << endl;

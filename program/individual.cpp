@@ -76,11 +76,11 @@ char Individual::getGender() {
     return gender;
 }
 
-int Individual::getBirth() {
+int Individual::getBirth()const {
     return birth;
 }
 
-int Individual::getDeath() {
+int Individual::getDeath()const {
     return death;
 }
 
