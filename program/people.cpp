@@ -28,8 +28,13 @@ People::People(const string filename)
       Individual i1(last,first,gender,byear,dyear);
       person.push_back(i1);
     }
-    cout << person.size();
     ins.close();
+}
+People::People(People& p1)
+{
+    for(unsigned int i = 0 ; i < p1.person.size(); i++) {
+       person.push_back(p1.person[i]);
+    }
 }
 
 void People::addIndi(Individual& i1)
@@ -37,7 +42,10 @@ void People::addIndi(Individual& i1)
     person.push_back(i1);
     saveFile("people.txt");     //ætti að vera const string?
 }
-
+Individual People::getIndi(const int i) const
+{
+    return person[i];
+}
 void People::saveFile(const string filename)
 {
     ofstream outs;
@@ -53,11 +61,6 @@ void People::saveFile(const string filename)
     outs << person[person.size()-1].getBirth() << endl;
     outs << person[person.size()-1].getDeath() <<endl;
     outs.close();
-}
-
-Individual People::getIndi(const int i) const
-{
-    return person[i];
 }
 
 void People::sortAlpabetFront()
@@ -128,46 +131,36 @@ void People::sortByDeathYear()
     result.printVector();
 }
 
-void People::sortByGenderMales()
+void People::sortByGender()
 {
     People r1(*this);
     People male,female;
+    char ans;
+    cout << "Do you want to sort by male(m) or female(f) ? " ;
+    cin >> ans;
     for(unsigned int j = 0; j<r1.person.size(); j++) {
         if(r1.getIndi(j).getGender() == 'm')
             male.person.push_back(r1.person[j]);
         else
             female.person.push_back(r1.person[j]);
     }
+    if(ans == 'm' || ans == 'M')
+    {
     cout << "--- Reading males ---" << endl;
     male.sortAlpabetFront();
     cout << "--- Reading females ---" << endl;
     female.sortAlpabetFront();
-}
-
-void People::sortByGenderFemales()
-{
-    People r1(*this);
-    People male,female;
-    for(unsigned int j = 0; j<r1.person.size(); j++) {
-        if(r1.getIndi(j).getGender() == 'm')
-            male.person.push_back(r1.person[j]);
-        else
-            female.person.push_back(r1.person[j]);
     }
-    cout << "--- Reading females ---" << endl;
-    female.sortAlpabetFront();
-    cout << "--- Reading males ---" << endl;
-    male.sortAlpabetFront();
+    else
+    {
+        cout << "--- Reading females ---" << endl;
+        female.sortAlpabetFront();
+        cout << "--- Reading males ---" << endl;
+        male.sortAlpabetFront();
 
-}
-
-People::People(People& p1)
-{
-    for(unsigned int i = 0 ; i < p1.person.size(); i++) {
-       person.push_back(p1.person[i]);
     }
-}
 
+}
 void People::swap(const int i, const int j)
 {
     Individual temp = person[i];
@@ -239,6 +232,7 @@ void People::searchName()
 
 void People::searchGender()
 {
+    People result;
     bool found = false;
     char findGender, ansGender;
     cout << "Enter which gender you want to search for (m/f): ";
@@ -247,16 +241,18 @@ void People::searchGender()
     for (unsigned int i = 0; i < person.size(); i++) {
         findGender = person[i].getGender();
         if (ansGender == findGender) {
-            cout << person[i] << endl;
+            result.person.push_back(person[i]);
             found = true;
         }
     }
     if (found == false)
         cout << "No one matched your search." << endl;
+    result.sortAlpabetFront();
 }
 
 void People::searchBirth()
 {
+    People result1, result2;
     bool found = false;
     int findYear, ansYear;
     cout << "Enter a birth year: ";
@@ -264,19 +260,38 @@ void People::searchBirth()
     cout << "--- The following people match your search ---" << endl;
     for (unsigned int i = 0; i < person.size(); i++) {
         findYear = person[i].getBirth();
-        if (ansYear == findYear) {
-            cout << person[i] << endl;
+        if (ansYear == findYear)
+        {
+            result1.person.push_back(person[i]);
             found = true;
         }
+        if (ansYear - 5 <= findYear && ansYear+5 >= findYear) {
+            result2.person.push_back(person[i]);
+        }
+    }
+    if(found)
+    {
+     result1.sortAlpabetFront();
     }
     if (found == false)
-        cout << "No one matched your search." << endl;
+    {
+       cout << "No one matched your search." << endl;
+            if(result2.person.size()!=0)
+            {
+                cout << "However these individuals were found within"
+                        " a 10 year range of given year: " << endl;
+                result2.sortAlpabetFront();
+            }
+
+
+    }
 }
 
 
 
 void People::searchDeath()
 {
+    People result1, result2;
     bool found = false;
     int findYear, ansYear;
     cout << "Enter a death year: ";
@@ -284,13 +299,31 @@ void People::searchDeath()
     cout << "--- The following people match your search ---" << endl;
     for (unsigned int i = 0; i < person.size(); i++) {
         findYear = person[i].getDeath();
-        if (ansYear == findYear) {
-            cout << person[i] << endl;
+        if (ansYear == findYear)
+        {
+            result1.person.push_back(person[i]);
             found = true;
         }
+        if (ansYear - 5 <= findYear && ansYear+5 >= findYear) {
+            result2.person.push_back(person[i]);
+        }
+    }
+    if(found)
+    {
+     result1.sortAlpabetFront();
     }
     if (found == false)
-        cout << "No one matched your search." << endl;
+    {
+       cout << "No one matched your search." << endl;
+            if(result2.person.size()!=0)
+            {
+                cout << "However these individuals were found within"
+                        " a 10 year range of given year: " << endl;
+                result2.sortAlpabetFront();
+            }
+
+
+    }
 }
 
 People People::removeIndi(People& vec)

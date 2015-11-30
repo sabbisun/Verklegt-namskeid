@@ -30,8 +30,7 @@ public:
     void sortAlpabetBack();
     void sortByBirthYear();
     void sortByDeathYear();
-    void sortByGenderMales();
-    void sortByGenderFemales();
+    void sortByGender();
     void printVector();
     People removeIndi(People& vec);
 

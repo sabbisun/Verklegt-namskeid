@@ -105,8 +105,7 @@ void sortMenu(People& p)
          << "(R) Reverse alphabetic order" << endl
          << "(B) Year of Birth" << endl
          << "(D) Year of Death" << endl
-         << "(F) Females first, then males" << endl
-         << "(M) Males first, then females" << endl;
+         << "(G) Gender" << endl;
     cout << "Select a letter: ";
     cin >> choice;
 
@@ -123,11 +122,8 @@ void sortMenu(People& p)
         case 'd':
         case 'D':   p.sortByDeathYear();
                     break;
-        case 'f':
-        case 'F':   p.sortByGenderFemales();
-                    break;
-        case 'm':
-        case 'M':   p.sortByGenderMales();
+        case 'g':
+        case 'G':   p.sortByGender();
                     break;
         default:;
     }
