@@ -12,7 +12,7 @@ class Individual
 {
 private:
     string name, surname;
-    char gender; // f/F or m/M
+    char gender;    // f/F or m/M
     int birth, death;
     bool alive;
 public:

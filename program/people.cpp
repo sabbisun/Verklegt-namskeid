@@ -1,6 +1,8 @@
 #include "people.h"
 
-People::People() {}
+People::People() {
+
+}
 
 People::People(const string filename)
 {
@@ -16,23 +18,24 @@ People::People(const string filename)
     char gender;
     while(getline(ins,last))
     {
-      if(last == "\0")
-      {
-          getline(ins,last);
-      }
-      getline(ins,first);
-      ins >> gender;
-      ins >> byear;
-      ins >> dyear;
-      Individual i1(last,first,gender,byear,dyear);
-      person.push_back(i1);
-      if(ins.eof())
-      {
-          break;
-      }
+        if(last == "\0")
+        {
+            getline(ins,last);
+        }
+        getline(ins,first);
+        ins >> gender;
+        ins >> byear;
+        ins >> dyear;
+        Individual i1(last,first,gender,byear,dyear);
+        person.push_back(i1);
+        if(ins.eof())
+        {
+            break;
+        }
     }
     ins.close();
 }
+
 People::People(People& p1)
 {
     for(unsigned int i = 0 ; i < p1.person.size(); i++) {
@@ -40,8 +43,8 @@ People::People(People& p1)
     }
 }
 
-
-int People::getSize(){
+int People::getSize()
+{
     int tala;
     tala=person.size();
     return tala;
@@ -50,24 +53,23 @@ int People::getSize(){
 void People::addIndi(Individual& i1)
 {
     bool CheckIfNewIndi = true;
-    for(unsigned int i = 0 ; i < person.size(); i++)
-    {
+    for(unsigned int i = 0 ; i < person.size(); i++) {
         if(person[i]==i1)
         CheckIfNewIndi=false;
     }
-    if(CheckIfNewIndi){
+    if(CheckIfNewIndi) {
         person.push_back(i1);
         saveFile(FILENAME);
     }
-
-
     else
         cout << "This person is already in the database " << endl;
 }
+
 Individual People::getIndi(const int i) const
 {
     return person[i];
 }
+
 void People::saveFile(const string filename)
 {
     ofstream outs;
@@ -85,9 +87,7 @@ void People::saveFile(const string filename)
     outs << person[person.size()-1].getDeath() ;
 
     outs.close();
-
 }
-
 
 void People::sortAlpabetFront()
 {
@@ -133,7 +133,7 @@ void People::sortByBirthYear()
         {
             if(result.checkBirthYearOrder(result.person[j],result.person[i]))
             {
-               result.swap(j,i);
+                result.swap(j,i);
             }
         }
     }
@@ -150,7 +150,7 @@ void People::sortByDeathYear()
         {
             if(result.checkDeathYearOrder(result.person[j],result.person[i]))
             {
-               result.swap(j,i);
+                result.swap(j,i);
             }
         }
     }
@@ -172,10 +172,10 @@ void People::sortByGender()
     }
     if(ans == 'm' || ans == 'M')
     {
-    cout << "--- Reading males ---" << endl;
-    male.sortAlpabetFront();
-    cout << "--- Reading females ---" << endl;
-    female.sortAlpabetFront();
+        cout << "--- Reading males ---" << endl;
+        male.sortAlpabetFront();
+        cout << "--- Reading females ---" << endl;
+        female.sortAlpabetFront();
     }
     else
     {
@@ -183,10 +183,9 @@ void People::sortByGender()
         female.sortAlpabetFront();
         cout << "--- Reading males ---" << endl;
         male.sortAlpabetFront();
-
     }
-
 }
+
 void People::swap(const int i, const int j)
 {
     Individual temp = person[i];
@@ -215,18 +214,15 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
 bool People::checkBirthYearOrder(const Individual& i1, const Individual& i2)
 {
     return(i1.getBirth()>i2.getBirth());
-
 }
 
 bool People::checkDeathYearOrder(const Individual& i1, const Individual& i2)
 {
     return(i1.getDeath()>i2.getDeath());
-
 }
 
 string People::makeLower(string& temp)
 {
-    //converts string variable temp to all lower letters:
     for (unsigned int i = 0; i < temp.length(); i++) {
         if(isupper(temp[i]))
             temp[i] = tolower(temp[i]);
@@ -286,8 +282,7 @@ void People::searchBirth()
     cout << "--- The following people match your search ---" << endl;
     for (unsigned int i = 0; i < person.size(); i++) {
         findYear = person[i].getBirth();
-        if (ansYear == findYear)
-        {
+        if (ansYear == findYear) {
             result1.person.push_back(person[i]);
             found = true;
         }
@@ -295,9 +290,8 @@ void People::searchBirth()
             result2.person.push_back(person[i]);
         }
     }
-    if(found)
-    {
-     result1.sortAlpabetFront();
+    if(found) {
+        result1.sortAlpabetFront();
     }
     if (found == false)
     {
@@ -308,11 +302,8 @@ void People::searchBirth()
                         " a 10 year range of given year: " << endl;
                 result2.sortAlpabetFront();
             }
-
-
     }
 }
-
 
 
 void People::searchDeath()
@@ -334,9 +325,8 @@ void People::searchDeath()
             result2.person.push_back(person[i]);
         }
     }
-    if(found)
-    {
-     result1.sortAlpabetFront();
+    if(found) {
+        result1.sortAlpabetFront();
     }
     if (found == false)
     {
@@ -347,8 +337,6 @@ void People::searchDeath()
                         " a 10 year range of given year: " << endl;
                 result2.sortAlpabetFront();
             }
-
-
     }
 }
 
@@ -372,19 +360,16 @@ People People::removeIndi()
         tempName = person[i].getName() + " " + person[i].getSurname();
         if(tempName != name) {
             removed.person.push_back(person[i]);
-         }
+        }
         else if(tempName == name)
             found = true;
-
-
     }
-    if (found == false)
-    {
-     cout << "There is no one named " << name << " on the list." << endl;
-     return *this;
+
+    if (found == false) {
+        cout << "There is no one named " << name << " on the list." << endl;
+        return *this;
     }
-    else
-    {
+    else {
         ofstream file;
         file.open(FILENAME.c_str());
         file << removed;
@@ -392,8 +377,8 @@ People People::removeIndi()
         cout << name <<" was removed"<< endl;
         return removed;
     }
-
 }
+
 ostream& operator << (ostream& outs, People& p1)
 {
     for(unsigned int i = 0; i<p1.person.size();i++)
@@ -403,13 +388,10 @@ ostream& operator << (ostream& outs, People& p1)
         outs << p1.person[i].getGender() << endl;
         outs << p1.person[i].getBirth() << endl;
         if(i == p1.person.size()-1)
-        outs << p1.person[i].getDeath();
+            outs << p1.person[i].getDeath();
         else
-        outs << p1.person[i].getDeath() << endl;
+            outs << p1.person[i].getDeath() << endl;
     }
-
-
     return outs;
-
 }
 
