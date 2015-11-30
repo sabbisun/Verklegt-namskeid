@@ -1,8 +1,6 @@
 #include <QCoreApplication>
 #include <iostream>
 #include "people.h"
-
-const string FILENAME = "people.txt";
 using namespace std;
 
 void ask();
@@ -26,16 +24,19 @@ int main(){
         ask();
         cin >> choice;
         menu(choice, list);
-    } while ( isalpha(choice) && !(choice == 'Q' || choice == 'q') );
+    } while (true);
 }
-
 void ask() {
     cout << "Do you want to: " << endl;
     cout << "(A) Add to list? " << endl;
     cout << "(S) Search list? " << endl;
     cout << "(P) Print list? " << endl;
     cout << "(R) Remove from list? " << endl;
+<<<<<<< HEAD
     cout << "(Q) Quit? " << endl;
+=======
+    cout << "(Q) Quit program " << endl;
+>>>>>>> 45bc549051e5c2867896b0022c3ca088277f041d
 }
 
 void menu(char ans, People& list)
@@ -60,7 +61,14 @@ void menu(char ans, People& list)
         case 'r':
         case 'R':   list = list.removeIndi(list);
                     break;
-        default:;
+        case 'q':
+        case 'Q':
+                    exit(1);
+                    break;
+        default:
+                cout << "Incorrect input, please try again!" << endl;
+                break;
+
     }
 }
 
@@ -72,7 +80,8 @@ void searchMenu(People& p)
     cout << "(N) Name" << endl
          << "(G) Gender" << endl
          << "(B) Year of Birth" << endl
-         << "(D) Year of Death" << endl;
+         << "(D) Year of Death" << endl
+         << "(Q) Quit program " << endl;
     cout << "Select a letter: ";
     cin >> choice;
 
@@ -89,7 +98,15 @@ void searchMenu(People& p)
         case 'd':
         case 'D':   p.searchDeath();
                     break;
-        default:;
+        case 'q':
+        case 'Q':
+                    exit(1);
+                    break;
+        default:
+                    cout << "Incorrect input, please try again!" << endl;
+                    searchMenu(p);
+
+
     }
 }
 
@@ -101,7 +118,8 @@ void sortMenu(People& p)
          << "(R) Reverse alphabetic order" << endl
          << "(B) Year of Birth" << endl
          << "(D) Year of Death" << endl
-         << "(G) Gender" << endl;
+         << "(G) Gender" << endl
+         << "(Q) Quit program " << endl;
     cout << "Select a letter: ";
     cin >> choice;
 
@@ -121,7 +139,13 @@ void sortMenu(People& p)
         case 'g':
         case 'G':   p.sortByGender();
                     break;
-        default:;
+        case 'q':
+        case 'Q':
+                    exit(1);
+                    break;
+        default:
+                cout << "Incorrect input, please try again!" << endl;
+                sortMenu(p);
     }
 }
 void welcomeMessage(People& p){
