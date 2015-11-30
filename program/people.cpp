@@ -386,7 +386,7 @@ People People::removeIndi()
     else
     {
         ofstream file;
-        file.open("people.txt");
+        file.open(FILENAME.c_str());
         file << removed;
         file.close();
         cout << name <<" was removed"<< endl;
