@@ -16,7 +16,8 @@ People::People(const string filename)
     char gender;
     while(getline(ins,last))
     {
-      if(last == "\0") {
+      if(last == "\0")
+      {
           getline(ins,last);
       }
 
@@ -27,6 +28,7 @@ People::People(const string filename)
       Individual i1(last,first,gender,byear,dyear);
       person.push_back(i1);
     }
+    cout << person.size();
     ins.close();
 }
 

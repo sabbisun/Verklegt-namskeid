@@ -58,7 +58,6 @@ void menu(char ans, People& list)
         case 'c':
         case 'C':   {
                         sortMenu(list);
-                        list.printVector();
                     }
                     break;
         case 'd':
@@ -130,5 +129,4 @@ void sortMenu(People& p)
                     break;
         default:;
     }
-    p.printVector();
 }
