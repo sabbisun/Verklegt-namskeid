@@ -22,8 +22,4 @@ Jones
 Jessica
 f
 123
-198Turing
-Alan
-m
-1912
-1954
+198

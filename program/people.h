@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <algorithm>
 #include "individual.h"
+const string FILENAME = "people.txt";
 
 using namespace std;
 
