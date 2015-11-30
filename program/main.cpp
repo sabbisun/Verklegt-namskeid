@@ -13,9 +13,8 @@ void sortMenu(People& p);
 //choose in what order the list shall be printed
 void welcomeMessage(People & p);
 
-int main(){
-
-
+int main()
+{
     People list(FILENAME);
     welcomeMessage(list);
 
@@ -32,11 +31,7 @@ void ask() {
     cout << "(S) Search list? " << endl;
     cout << "(P) Print list? " << endl;
     cout << "(R) Remove from list? " << endl;
-<<<<<<< HEAD
-    cout << "(Q) Quit? " << endl;
-=======
-    cout << "(Q) Quit program " << endl;
->>>>>>> 45bc549051e5c2867896b0022c3ca088277f041d
+    cout << "(Q) Quit program. " << endl;
 }
 
 void menu(char ans, People& list)
@@ -54,16 +49,13 @@ void menu(char ans, People& list)
         case 'S':   searchMenu(list);
                     break;
         case 'p':
-        case 'P':   {
-                        sortMenu(list);
-                    }
+        case 'P':   sortMenu(list);
                     break;
         case 'r':
         case 'R':   list = list.removeIndi(list);
                     break;
         case 'q':
-        case 'Q':
-                    exit(1);
+        case 'Q':   exit(1);
                     break;
         default:
                 cout << "Incorrect input, please try again!" << endl;
@@ -152,6 +144,6 @@ void welcomeMessage(People& p){
 
     cout<<"------------Welcome to the database of famous computer scientists-------------"<<endl;
     cout<<"\t"<<"    In this database you can add, remove, sort and search"<<endl;
-    cout<<"\t \t"<<" At this moment we have "<< p.getSize() <<" computer scientists!"<<endl;
+    cout<<"\t \t"<<" At this moment we have "<< p.getSize() << " computer scientists!"<<endl;
     cout<<"------------------------------------Enjoy!------------------------------------"<<endl;
 }
