@@ -70,6 +70,7 @@ void People::saveFile(const string filename)
     outs.close();
 }
 
+
 void People::sortAlpabetFront()
 {
     cout << endl << "--- Printing by alphabetical order --- " << endl;
