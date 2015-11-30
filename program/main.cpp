@@ -15,7 +15,7 @@ void searchMenu(People& p);
 //choose what shall be searched for
 void sortMenu(People& p);
 //choose in what order the list shall be printed
-void welcomeMessage(People & p);
+void welcomeMessage(People& p);
 
 int main(){
 
