@@ -20,13 +20,16 @@ People::People(const string filename)
       {
           getline(ins,last);
       }
-
       getline(ins,first);
       ins >> gender;
       ins >> byear;
       ins >> dyear;
       Individual i1(last,first,gender,byear,dyear);
       person.push_back(i1);
+      if(ins.eof())
+      {
+          break;
+      }
     }
     ins.close();
 }
@@ -46,7 +49,6 @@ int People::getSize(){
 
 void People::addIndi(Individual& i1)
 {
-    person.push_back(i1);
     bool CheckIfNewIndi = true;
     for(unsigned int i = 0 ; i < person.size(); i++)
     {
@@ -54,7 +56,11 @@ void People::addIndi(Individual& i1)
         CheckIfNewIndi=false;
     }
     if(CheckIfNewIndi)
+    {
+    person.push_back(i1);
     saveFile(FILENAME);
+
+    }
     else
     cout << "This person is already in the database " << endl;
 }
@@ -71,12 +77,15 @@ void People::saveFile(const string filename)
         cout << "Something went wrong with opening the output file" << endl;
         exit(1);
     }
+    outs << endl;
     outs << person[person.size()-1].getSurname() << endl;
     outs << person[person.size()-1].getName() << endl;
     outs << person[person.size()-1].getGender() << endl;
     outs << person[person.size()-1].getBirth() << endl;
-    outs << person[person.size()-1].getDeath() <<endl;
+    outs << person[person.size()-1].getDeath() ;
+
     outs.close();
+
 }
 
 
@@ -343,7 +352,7 @@ void People::searchDeath()
     }
 }
 
-People People::removeIndi(People& vec)
+People People::removeIndi()
 {
     People removed;
     char ans;
@@ -359,23 +368,46 @@ People People::removeIndi(People& vec)
     cout << "Enter the exact name of the individual that will be removed: ";
     getline(cin, name);     // input as: name surname
 
-    ofstream file("people.txt", ios::trunc);
-
-    for (unsigned int i = 0; i < vec.person.size()-1; i++) {
-        tempName = vec.person[i].getName() + " " + vec.person[i].getSurname();
+    for (unsigned int i = 0; i < person.size(); i++) {
+        tempName = person[i].getName() + " " + person[i].getSurname();
         if(tempName != name) {
-            removed.person.push_back(vec.person[i]);
-            //removed.addIndi(person[i]);
+            //removed.person.push_back(vec.person[i]);
+            removed.person.push_back(person[i]);
+         }
+        else if(tempName==name)
             found = true;
-        }
     }
     if (found == false)
-        cout << "There is no one named " << name << " on the list." << endl;
+    {
+     cout << "There is no one named " << name << " on the list." << endl;
+     return *this;
+    }
+    else
+    {
+        ofstream file;
+        file.open("people.txt");
+        file << removed;
+        file.close();
+        return removed;
+    }
 
-    return removed;
 }
+ostream& operator << (ostream& outs, People& p1)
+{
+    for(unsigned int i = 0; i<p1.person.size();i++)
+    {
+        outs << p1.person[i].getSurname() << endl;
+        outs << p1.person[i].getName() << endl;
+        outs << p1.person[i].getGender() << endl;
+        outs << p1.person[i].getBirth() << endl;
+        if(i == p1.person.size()-1)
+        outs << p1.person[i].getDeath();
+        else
+        outs << p1.person[i].getDeath() << endl;
+    }
 
 
+    return outs;
 
-
+}
 

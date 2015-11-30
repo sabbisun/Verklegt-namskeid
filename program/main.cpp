@@ -55,7 +55,7 @@ void menu(char ans, People& list)
                     }
                     break;
         case 'r':
-        case 'R':   list = list.removeIndi(list);
+        case 'R':   list = list.removeIndi();
                     break;
         case 'q':
         case 'Q':

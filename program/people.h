@@ -34,7 +34,8 @@ public:
     void sortByDeathYear();
     void sortByGender();
     void printVector();
-    People removeIndi(People& vec);
+    friend ostream& operator << (ostream& outs, People& p1);
+    People removeIndi();
 
 private:
     vector <Individual> person;
