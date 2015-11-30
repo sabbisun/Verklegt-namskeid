@@ -350,6 +350,8 @@ People People::removeIndi(People& vec)
     cout << "Enter the exact name of the individual that will be removed: ";
     getline(cin, name);     // input as: name surname
 
+    ofstream file("people.txt", ios::trunc);
+
     for (unsigned int i = 0; i < vec.person.size()-1; i++) {
         tempName = vec.person[i].getName() + " " + vec.person[i].getSurname();
         if(tempName != name) {

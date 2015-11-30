@@ -5,8 +5,6 @@
 const string FILENAME = "people.txt";
 using namespace std;
 
-bool legalAns(char ans);
-//checks if answer fits choices, if false then programs ends
 void ask();
 //asks what should be done with the list
 void menu(char ans, People& list);
@@ -28,13 +26,7 @@ int main(){
         ask();
         cin >> choice;
         menu(choice, list);
-    } while (legalAns(choice));
-}
-
-
-bool legalAns(char ans) {
-    return (ans == 'A' || ans == 'a' || ans == 'S' || ans == 's'
-            || ans == 'P' || ans == 'p' || ans == 'R' || ans == 'r');
+    } while ( isalpha(choice) && !(choice == 'Q' || choice == 'q') );
 }
 
 void ask() {
