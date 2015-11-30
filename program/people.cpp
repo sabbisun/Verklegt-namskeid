@@ -54,9 +54,9 @@ void People::addIndi(Individual& i1)
         CheckIfNewIndi=false;
     }
     if(CheckIfNewIndi)
-    saveFile(FILENAME);
+        saveFile(FILENAME);
     else
-    cout << "This person is already in the database " << endl;
+        cout << "This person is already in the database " << endl;
 }
 Individual People::getIndi(const int i) const
 {
