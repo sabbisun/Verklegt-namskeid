@@ -46,7 +46,7 @@ istream& operator >> (istream& ins, Individual& id)
         cout << "Gender (m/f): ";
         ins >> id.gender;
         if(id.gender != 'f' && id.gender != 'm' && id.gender != 'F' && id.gender != 'M')
-            cout << "Invalid input!" << endl << "Type again" << endl << endl;
+            cout << "Invalid input, please try again!" << endl << endl;
     } while(id.gender != 'f' && id.gender != 'm' && id.gender != 'F' && id.gender != 'M');
 
     do {
@@ -55,7 +55,7 @@ istream& operator >> (istream& ins, Individual& id)
         cout << "Year of birth: ";
         ins >> id.birth;
         if(ins.fail())
-            cout << endl << "Invalid input!" << endl << "Type again" << endl << endl;
+            cout << endl << "Invalid input, please try again!" << endl << endl;
     } while(ins.fail());
 
     cout << "Is the individual alive?(y/n) ";
@@ -67,10 +67,11 @@ istream& operator >> (istream& ins, Individual& id)
             cout << "Year of death: ";
             ins >> id.death;
             if(ins.fail()) {
-                cout << endl << "Invalid input!" << endl << "Type again" << endl << endl;
+                cout << endl << "Invalid input, please try again!" << endl << endl;
             }
             while(id.birth>id.death) {
-                cout<<"Illegal deathyear! Input again: ";
+                cout<<"Illegal deathyear! " << endl;
+                cout << "Input again: ";
                 ins >>id.death;
             }
         } while(ins.fail());

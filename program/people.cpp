@@ -295,12 +295,12 @@ void People::searchGender()
     }
     else
     {
-     cout << "Incorrect input, please try again" << endl;
+     cout << "Incorrect input, please try again!" << endl;
      this->searchGender();
     }
     if (found == false)
     {
-        cout << "No one matched your search." << endl;
+        cout << "No one matched your search!" << endl;
     }
 
 }
@@ -341,7 +341,7 @@ void People::searchBirth()
     }
     else
     {
-        cout << "Incorrect input, please try again" << endl;
+        cout << "Incorrect input, please try again!" << endl;
         cin.clear();
         cin.ignore();
         this->searchBirth();
@@ -388,7 +388,7 @@ void People::searchDeath()
     }
     else
     {
-        cout << "Incorrect input, please try again" << endl;
+        cout << "Incorrect input, please try again!" << endl;
         cin.clear();
         cin.ignore();
          this->searchDeath();
@@ -430,7 +430,7 @@ People People::removeIndi()
         file.open(FILENAME.c_str());
         file << removed;
         file.close();
-        cout << name <<" was removed"<< endl;
+        cout << name <<" was successfully removed"<< endl;
         return removed;
     }
 }
