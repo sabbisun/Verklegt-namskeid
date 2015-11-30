@@ -2,15 +2,18 @@ Turing
 Alan
 m
 1912
-1954Babbage
+1954
+Babbage
 Charles
 m
 1791
-1871Lovelace
+1871
+Lovelace
 Ada
 f
 1815
-1852Hopper
+1852
+Hopper
 Grace Murray
 m
 1906

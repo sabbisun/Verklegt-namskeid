@@ -213,6 +213,21 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
     char c2 = tolower(s2[0]);
     int t1 = static_cast <int> (c1);
     int t2 = static_cast <int> (c2);
+    if(t1==t2)
+    {
+        c1 = tolower(s1[1]);
+        c2 = tolower(s2[1]);
+        t1 = static_cast <int> (c1);
+        t2 = static_cast <int> (c2);
+        if(t1==t2)
+        {
+            c1 = tolower(s1[2]);
+            c2 = tolower(s2[2]);
+            t1 = static_cast <int> (c1);
+            t2 = static_cast <int> (c2);
+        }
+    }
+
     return(t2>t1);
 }
 
@@ -264,17 +279,30 @@ void People::searchGender()
     char findGender, ansGender;
     cout << "Enter which gender you want to search for (m/f): ";
     cin >> ansGender;
-    cout << "--- The following people match your search ---" << endl;
-    for (unsigned int i = 0; i < person.size(); i++) {
-        findGender = person[i].getGender();
-        if (ansGender == findGender) {
-            result.person.push_back(person[i]);
-            found = true;
+    cout << endl;
+    if(ansGender == 'm' || ansGender == 'M' || ansGender=='f' || ansGender=='F')
+    {
+        cout << "--- The following people match your search ---" << endl;
+        for (unsigned int i = 0; i < person.size(); i++)
+        {
+            findGender = person[i].getGender();
+            if (ansGender == findGender) {
+                result.person.push_back(person[i]);
+                found = true;
+            }
         }
+        result.sortAlpabetFront();
+    }
+    else
+    {
+     cout << "Incorrect input, please try again" << endl;
+     this->searchGender();
     }
     if (found == false)
+    {
         cout << "No one matched your search." << endl;
-    result.sortAlpabetFront();
+    }
+
 }
 
 void People::searchBirth()
