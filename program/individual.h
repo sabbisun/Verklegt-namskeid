@@ -6,7 +6,6 @@
 #include <vector>
 #include <fstream>
 #include <cstdlib>
-
 using namespace std;
 
 class Individual
@@ -22,7 +21,6 @@ public:
     bool isDead();
     friend ostream& operator << (ostream& outs, Individual& id);
     friend istream& operator >> (istream& ins, Individual& id);
-
     string getName() const;
     string getSurname() const;
     char getGender() const;
