@@ -30,8 +30,8 @@ int main()
 
 
 bool legalAns(char ans) {
-    return (ans == 'A' || ans == 'a' || ans == 'B' || ans == 'b'
-            || ans == 'C' || ans == 'c' || ans == 'D' || ans == 'd');
+    return (ans == 'A' || ans == 'a' || ans == 'S' || ans == 's'
+            || ans == 'P' || ans == 'p' || ans == 'R' || ans == 'r');
 }
 
 void ask() {
