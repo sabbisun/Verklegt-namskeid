@@ -28,8 +28,14 @@ People::People(const string filename)
       Individual i1(last,first,gender,byear,dyear);
       person.push_back(i1);
     }
-    cout << person.size();
     ins.close();
+}
+
+
+int People::getSize(){
+    int tala;
+    tala=person.size();
+    return tala;
 }
 
 void People::addIndi(Individual& i1)
