@@ -33,6 +33,7 @@ void ask() {
     cout << "(P) Print list? " << endl;
     cout << "(R) Remove from list? " << endl;
     cout << "(Q) Quit program. " << endl;
+    cout << "Select a letter: ";
 }
 
 void menu(char ans, People& list)
@@ -66,6 +67,7 @@ void menu(char ans, People& list)
 
 void searchMenu(People& p)
 {
+    cout << endl;
     char choice;
     cout << "Search by: " << endl;
     cout << "(N) Name" << endl
@@ -99,6 +101,7 @@ void searchMenu(People& p)
 
 void sortMenu(People& p)
 {
+    cout << endl;
     char choice;
     cout << "Print/Sort by: " << endl;
     cout << "(A) Alphabetic order" << endl

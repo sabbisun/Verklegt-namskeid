@@ -177,12 +177,17 @@ void People::sortByGender()
         cout << "--- Reading females ---" << endl;
         female.sortAlpabetFront();
     }
-    else
+    else if(ans == 'f' || ans == 'F')
     {
         cout << "--- Reading females ---" << endl;
         female.sortAlpabetFront();
         cout << "--- Reading males ---" << endl;
         male.sortAlpabetFront();
+    }
+    else
+    {
+        cout << "Wrong input try again" << endl;
+        this->sortByGender();
     }
 }
 
@@ -235,7 +240,7 @@ void People::searchName()
     bool found = false;
     string tempStr, searchStr = "";
     cin.ignore();   //annars virkar getline ekki
-    cout << "Enter a name to search for:" << endl;
+    cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
     searchStr = makeLower(searchStr);
 
