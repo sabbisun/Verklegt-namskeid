@@ -371,20 +371,12 @@ People People::removeIndi()
     for (unsigned int i = 0; i < person.size(); i++) {
         tempName = person[i].getName() + " " + person[i].getSurname();
         if(tempName != name) {
-<<<<<<< HEAD
-            //removed.person.push_back(vec.person[i]);
             removed.person.push_back(person[i]);
          }
-        else if(tempName==name)
-            found = true;
-=======
-            removed.person.push_back(vec.person[i]);
-            //removed.addIndi(person[i]);
-        }
         else if(tempName == name)
             found = true;
 
->>>>>>> 6874d9aaa10593a8d338f98263b7d1ca7e1893b9
+
     }
     if (found == false)
     {
@@ -397,6 +389,7 @@ People People::removeIndi()
         file.open("people.txt");
         file << removed;
         file.close();
+        cout << name <<" was removed"<< endl;
         return removed;
     }
 
