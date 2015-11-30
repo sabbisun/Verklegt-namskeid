@@ -25,6 +25,7 @@ int main()
         menu(choice, list);
     } while (true);
 }
+
 void ask() {
     cout << "Do you want to: " << endl;
     cout << "(A) Add to list? " << endl;
@@ -57,10 +58,8 @@ void menu(char ans, People& list)
         case 'q':
         case 'Q':   exit(1);
                     break;
-        default:
-                cout << "Incorrect input, please try again!" << endl;
-                break;
-
+        default:    cout << "Incorrect input, please try again!" << endl;
+                    break;
     }
 }
 
@@ -91,14 +90,10 @@ void searchMenu(People& p)
         case 'D':   p.searchDeath();
                     break;
         case 'q':
-        case 'Q':
-                    exit(1);
+        case 'Q':   exit(1);
                     break;
-        default:
-                    cout << "Incorrect input, please try again!" << endl;
+        default:    cout << "Incorrect input, please try again!" << endl;
                     searchMenu(p);
-
-
     }
 }
 
@@ -132,18 +127,17 @@ void sortMenu(People& p)
         case 'G':   p.sortByGender();
                     break;
         case 'q':
-        case 'Q':
-                    exit(1);
+        case 'Q':   exit(1);
                     break;
-        default:
-                cout << "Incorrect input, please try again!" << endl;
-                sortMenu(p);
+        default:    cout << "Incorrect input, please try again!" << endl;
+                    sortMenu(p);
     }
 }
-void welcomeMessage(People& p){
 
-    cout<<"------------Welcome to the database of famous computer scientists-------------"<<endl;
-    cout<<"\t"<<"    In this database you can add, remove, sort and search"<<endl;
-    cout<<"\t \t"<<" At this moment we have "<< p.getSize() << " computer scientists!"<<endl;
-    cout<<"------------------------------------Enjoy!------------------------------------"<<endl;
+void welcomeMessage(People& p)
+{
+    cout << "------------Welcome to the database of famous computer scientists-------------" << endl;
+    cout << "\t" << "    In this database you can add, remove, sort and search" << endl;
+    cout << "\t \t" <<" At this moment we have "<< p.getSize() << " computer scientists!" << endl;
+    cout << "------------------------------------Enjoy!------------------------------------" << endl;
 }
