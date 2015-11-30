@@ -11,11 +11,14 @@ void searchMenu(People& p);
 //choose what shall be searched for
 void sortMenu(People& p);
 //choose in what order the list shall be printed
+void welcomeMessage(People & p);
 
-int main()
-{
+int main(){
+
 
     People list(FILENAME);
+    welcomeMessage(list);
+
     char choice;
     do {
         ask();
@@ -140,4 +143,11 @@ void sortMenu(People& p)
                 cout << "Incorrect input, please try again!" << endl;
                 sortMenu(p);
     }
+}
+void welcomeMessage(People& p){
+
+    cout<<"------------Welcome to the database of famous computer scientists-------------"<<endl;
+    cout<<"\t"<<"    In this database you can add, remove, sort and search"<<endl;
+    cout<<"\t \t"<<" At this moment we have "<< p.getSize() <<" computer scientists!"<<endl;
+    cout<<"------------------------------------Enjoy!------------------------------------"<<endl;
 }

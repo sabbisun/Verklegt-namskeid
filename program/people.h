@@ -25,6 +25,7 @@ public:
     void searchDeath();
     void searchMenu();
     void addIndi(Individual& i1);
+    int getSize();
     Individual getIndi(const int i) const;
     void swap(const int i, const int j);
     void sortAlpabetFront();

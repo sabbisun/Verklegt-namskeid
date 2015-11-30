@@ -37,6 +37,13 @@ People::People(People& p1)
     }
 }
 
+
+int People::getSize(){
+    int tala;
+    tala=person.size();
+    return tala;
+}
+
 void People::addIndi(Individual& i1)
 {
     person.push_back(i1);
@@ -72,8 +79,10 @@ void People::saveFile(const string filename)
     outs.close();
 }
 
+
 void People::sortAlpabetFront()
 {
+    cout << endl << "--- Printing by alphabetical order --- " << endl;
      People result(*this);
      for(unsigned int i = 1 ; i < result.person.size(); i++)
      {
@@ -90,6 +99,7 @@ void People::sortAlpabetFront()
 
 void People::sortAlpabetBack()
 {
+    cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
     {
@@ -106,6 +116,7 @@ void People::sortAlpabetBack()
 
 void People::sortByBirthYear()
 {
+    cout << endl << "--- Printing by year of Birth --- " << endl;
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
     {
@@ -122,6 +133,7 @@ void People::sortByBirthYear()
 
 void People::sortByDeathYear()
 {
+    cout << endl << "--- Printing by year of Death --- " << endl;
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
     {
@@ -346,6 +358,8 @@ People People::removeIndi(People& vec)
 
     cout << "Enter the exact name of the individual that will be removed: ";
     getline(cin, name);     // input as: name surname
+
+    ofstream file("people.txt", ios::trunc);
 
     for (unsigned int i = 0; i < vec.person.size()-1; i++) {
         tempName = vec.person[i].getName() + " " + vec.person[i].getSurname();
