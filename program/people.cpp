@@ -373,6 +373,8 @@ People People::removeIndi(People& vec)
     }
     if (found == false)
         cout << "There is no one named " << name << " on the list." << endl;
+    else
+        cout << name << " was removed." << endl;
 
     return removed;
 }
