@@ -33,8 +33,9 @@ void ask() {
     cout << "Do you want to: " << endl;
     cout << "(A) Add to list? " << endl;
     cout << "(S) Search list? " << endl;
-    cout << "(P) Print list? " << endl; //fyrst spurt um sort svo print
+    cout << "(P) Print list? " << endl;
     cout << "(R) Remove from list? " << endl;
+    cout << "(Q) Quit? " << endl;
 }
 
 void menu(char ans, People& list)

@@ -357,8 +357,10 @@ People People::removeIndi(People& vec)
         if(tempName != name) {
             removed.person.push_back(vec.person[i]);
             //removed.addIndi(person[i]);
-            found = true;
         }
+        else if(tempName == name)
+            found = true;
+
     }
     if (found == false)
         cout << "There is no one named " << name << " on the list." << endl;
