@@ -27,6 +27,7 @@ int main()
 }
 
 void ask() {
+    cout << endl;
     cout << "Do you want to: " << endl;
     cout << "(A) Add to list? " << endl;
     cout << "(S) Search list? " << endl;
@@ -103,6 +104,7 @@ void sortMenu(People& p)
 {
     cout << endl;
     char choice;
+    cout << endl;
     cout << "Print/Sort by: " << endl;
     cout << "(A) Alphabetic order" << endl
          << "(R) Reverse alphabetic order" << endl
