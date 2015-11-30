@@ -283,6 +283,8 @@ void People::searchBirth()
     }
 }
 
+
+
 void People::searchDeath()
 {
     People result1, result2;

@@ -18,6 +18,7 @@ void sortMenu(People& p);
 
 int main()
 {
+
     People list(FILENAME);
     char choice;
     do {
@@ -36,9 +37,9 @@ bool legalAns(char ans) {
 void ask() {
     cout << "Do you want to: " << endl;
     cout << "(A) Add to list? " << endl;
-    cout << "(B) Search list? " << endl;
-    cout << "(C) Print list? " << endl; //fyrst spurt um sort svo print
-    cout << "(D) Remove from list? " << endl;
+    cout << "(S) Search list? " << endl;
+    cout << "(P) Print list? " << endl; //fyrst spurt um sort svo print
+    cout << "(R) Remove from list? " << endl;
 }
 
 void menu(char ans, People& list)
@@ -52,20 +53,21 @@ void menu(char ans, People& list)
                         list.addIndi(id);
                     }
                     break;
-        case 'b':
-        case 'B':   searchMenu(list);
+        case 's':
+        case 'S':   searchMenu(list);
                     break;
-        case 'c':
-        case 'C':   {
+        case 'p':
+        case 'P':   {
                         sortMenu(list);
                     }
                     break;
-        case 'd':
-        case 'D':   list = list.removeIndi(list);
+        case 'r':
+        case 'R':   list = list.removeIndi(list);
                     break;
         default:;
     }
 }
+
 
 void searchMenu(People& p)
 {
