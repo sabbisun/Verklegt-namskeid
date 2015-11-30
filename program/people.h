@@ -34,14 +34,13 @@ public:
     void sortByGenderFemales();
     void printVector();
 
-    string makeLower(string& temp);
-
 private:
     vector <Individual> person;
     void saveFile(const string filename);
     bool checkIndiOrder(const Individual& i1, const Individual& i2);
     bool checkBirthYearOrder(const Individual& i1, const Individual& i2);
     bool checkDeathYearOrder(const Individual& i1, const Individual& i2);
+    string makeLower(string& temp);
 
 };
 

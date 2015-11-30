@@ -48,7 +48,6 @@ void People::saveFile(const string filename)
     outs << person[person.size()-1].getGender() << endl;
     outs << person[person.size()-1].getBirth() << endl;
     outs << person[person.size()-1].getDeath() <<endl;
-    cout << endl;
     outs.close();
 }
 
