@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 Turing
 Alan
 m
@@ -23,3 +25,4 @@ Njalli
 m
 1994
 0
+>>>>>>> 8735017332eabf0aeec96e0e4efbe347ed943630

@@ -44,7 +44,7 @@ private:
     bool checkBirthYearOrder(const Individual& i1, const Individual& i2);
     bool checkDeathYearOrder(const Individual& i1, const Individual& i2);
     string makeLower(string& temp);
-
+    //converts string variable temp to all lower letters:
 };
 
 #endif // PEOPLE_H

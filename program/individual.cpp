@@ -17,11 +17,12 @@ ostream& operator << (ostream& outs, Individual& id)
     outs << "Name: " << id.surname << ", " << id.name << endl;
     outs << "Gender: " << id.gender << endl;
     outs << "Year of birth: " << id.birth << endl;
-    if (id.death == 0)
+    if (id.death == 0){
         outs << "The individual is still alive." << endl;
-    else
+    }
+    else{
         outs << "Year of death: " << id.death << endl;
-    
+    }
     return outs;
 }
 
@@ -70,6 +71,10 @@ istream& operator >> (istream& ins, Individual& id)
             ins >> id.death;
             if(ins.fail()){
                 cout << endl << "Invalid input!" << endl << "Type again" << endl << endl;
+            }
+            while(id.birth>id.death){
+                cout<<"Illegal deathyear! Input again: ";
+                ins >>id.death;
             }
         }while(ins.fail());
 
