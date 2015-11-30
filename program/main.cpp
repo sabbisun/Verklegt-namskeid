@@ -27,12 +27,14 @@ int main()
 }
 
 void ask() {
+    cout << endl;
     cout << "Do you want to: " << endl;
     cout << "(A) Add to list? " << endl;
     cout << "(S) Search list? " << endl;
     cout << "(P) Print list? " << endl;
     cout << "(R) Remove from list? " << endl;
     cout << "(Q) Quit program. " << endl;
+    cout << "Select a letter: ";
 }
 
 void menu(char ans, People& list)
@@ -100,6 +102,7 @@ void searchMenu(People& p)
 void sortMenu(People& p)
 {
     char choice;
+    cout << endl;
     cout << "Print/Sort by: " << endl;
     cout << "(A) Alphabetic order" << endl
          << "(R) Reverse alphabetic order" << endl
