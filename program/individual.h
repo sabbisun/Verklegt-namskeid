@@ -6,7 +6,6 @@
 #include <vector>
 #include <fstream>
 #include <cstdlib>
-
 using namespace std;
 
 class Individual
@@ -23,7 +22,6 @@ public:
     friend ostream& operator << (ostream& outs, Individual& id);
     friend istream& operator >> (istream& ins, Individual& id);
     friend bool operator ==(Individual& indi, Individual& indi2); //Check if person already exists in database.
-
     string getName() const;
     string getSurname() const;
     char getGender() const;

@@ -34,16 +34,16 @@ int main(){
 
 
 bool legalAns(char ans) {
-    return (ans == 'A' || ans == 'a' || ans == 'B' || ans == 'b'
-            || ans == 'C' || ans == 'c' || ans == 'D' || ans == 'd');
+    return (ans == 'A' || ans == 'a' || ans == 'S' || ans == 's'
+            || ans == 'P' || ans == 'p' || ans == 'R' || ans == 'r');
 }
 
 void ask() {
     cout << "Do you want to: " << endl;
     cout << "(A) Add to list? " << endl;
-    cout << "(B) Search list? " << endl;
-    cout << "(C) Print list? " << endl; //fyrst spurt um sort svo print
-    cout << "(D) Remove from list? " << endl;
+    cout << "(S) Search list? " << endl;
+    cout << "(P) Print list? " << endl; //fyrst spurt um sort svo print
+    cout << "(R) Remove from list? " << endl;
 }
 
 void menu(char ans, People& list)
@@ -57,16 +57,16 @@ void menu(char ans, People& list)
                         list.addIndi(id);
                     }
                     break;
-        case 'b':
-        case 'B':   searchMenu(list);
+        case 's':
+        case 'S':   searchMenu(list);
                     break;
-        case 'c':
-        case 'C':   {
+        case 'p':
+        case 'P':   {
                         sortMenu(list);
                     }
                     break;
-        case 'd':
-        case 'D':   list = list.removeIndi(list);
+        case 'r':
+        case 'R':   list = list.removeIndi(list);
                     break;
         default:;
     }
@@ -109,8 +109,7 @@ void sortMenu(People& p)
          << "(R) Reverse alphabetic order" << endl
          << "(B) Year of Birth" << endl
          << "(D) Year of Death" << endl
-         << "(F) Females first, then males" << endl
-         << "(M) Males first, then females" << endl;
+         << "(G) Gender" << endl;
     cout << "Select a letter: ";
     cin >> choice;
 
@@ -127,11 +126,8 @@ void sortMenu(People& p)
         case 'd':
         case 'D':   p.sortByDeathYear();
                     break;
-        case 'f':
-        case 'F':   p.sortByGenderFemales();
-                    break;
-        case 'm':
-        case 'M':   p.sortByGenderMales();
+        case 'g':
+        case 'G':   p.sortByGender();
                     break;
         default:;
     }
