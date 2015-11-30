@@ -312,30 +312,42 @@ void People::searchBirth()
     int findYear, ansYear;
     cout << "Enter a birth year: ";
     cin >> ansYear;
-    cout << "--- The following people match your search ---" << endl;
-    for (unsigned int i = 0; i < person.size(); i++) {
-        findYear = person[i].getBirth();
-        if (ansYear == findYear) {
-            result1.person.push_back(person[i]);
-            found = true;
-        }
-        if (ansYear - 5 <= findYear && ansYear+5 >= findYear) {
-            result2.person.push_back(person[i]);
-        }
-    }
-    if(found) {
-        result1.sortAlpabetFront();
-    }
-    if (found == false)
+    if(!cin.fail())
     {
-       cout << "No one matched your search." << endl;
-            if(result2.person.size()!=0)
-            {
-                cout << "However these individuals were found within"
-                        " a 10 year range of given year: " << endl;
-                result2.sortAlpabetFront();
+         cout << "--- The following people match your search ---" << endl;
+        for (unsigned int i = 0; i < person.size(); i++) {
+            findYear = person[i].getBirth();
+            if (ansYear == findYear) {
+                result1.person.push_back(person[i]);
+                found = true;
             }
+            if (ansYear - 5 <= findYear && ansYear+5 >= findYear) {
+                result2.person.push_back(person[i]);
+            }
+        }
+        if(found) {
+            result1.sortAlpabetFront();
+        }
+        if (found == false)
+        {
+           cout << "No one matched your search." << endl;
+                if(result2.person.size()!=0)
+                {
+                    cout << "However these individuals were found within"
+                            " a 10 year range of given year: " << endl;
+                    result2.sortAlpabetFront();
+                }
+        }
     }
+    else
+    {
+        cout << "Incorrect input, please try again" << endl;
+        cin.clear();
+        cin.ignore();
+        this->searchBirth();
+
+     }
+
 }
 
 
@@ -346,31 +358,42 @@ void People::searchDeath()
     int findYear, ansYear;
     cout << "Enter a death year: ";
     cin >> ansYear;
-    cout << "--- The following people match your search ---" << endl;
-    for (unsigned int i = 0; i < person.size(); i++) {
-        findYear = person[i].getDeath();
-        if (ansYear == findYear)
-        {
-            result1.person.push_back(person[i]);
-            found = true;
-        }
-        if (ansYear - 5 <= findYear && ansYear + 5 >= findYear) {
-            result2.person.push_back(person[i]);
-        }
-    }
-    if(found) {
-        result1.sortAlpabetFront();
-    }
-    if (found == false)
+    if(!cin.fail())
     {
-       cout << "No one matched your search." << endl;
-            if(result2.person.size()!=0)
+        cout << "--- The following people match your search ---" << endl;
+        for (unsigned int i = 0; i < person.size(); i++) {
+            findYear = person[i].getDeath();
+            if (ansYear == findYear)
             {
-                cout << "However these individuals were found within"
-                        " a 10 year range of given year: " << endl;
-                result2.sortAlpabetFront();
+                result1.person.push_back(person[i]);
+                found = true;
             }
+            if (ansYear - 5 <= findYear && ansYear + 5 >= findYear) {
+                result2.person.push_back(person[i]);
+            }
+        }
+        if(found) {
+            result1.sortAlpabetFront();
+        }
+        if (found == false)
+        {
+           cout << "No one matched your search." << endl;
+                if(result2.person.size()!=0)
+                {
+                    cout << "However these individuals were found within"
+                            " a 10 year range of given year: " << endl;
+                    result2.sortAlpabetFront();
+                }
+        }
     }
+    else
+    {
+        cout << "Incorrect input, please try again" << endl;
+        cin.clear();
+        cin.ignore();
+         this->searchDeath();
+
+     }
 }
 
 People People::removeIndi()
