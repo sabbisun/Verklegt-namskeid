@@ -37,7 +37,7 @@ bool operator == (Individual& indi, Individual& indi2)
 istream& operator >> (istream& ins, Individual& id)
 {
     char ans;
-    cout << "Surname name: ";
+    cout << "Surname: ";
     getline(ins, id.surname);
     cout << "Given name: ";
     getline(ins, id.name);
