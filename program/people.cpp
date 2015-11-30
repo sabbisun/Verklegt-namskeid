@@ -16,20 +16,20 @@ People::People(const string filename)
     char gender;
     while(getline(ins,last))
     {
-      if(last == "\0")
-      {
-          getline(ins,last);
-      }
-      getline(ins,first);
-      ins >> gender;
-      ins >> byear;
-      ins >> dyear;
-      Individual i1(last,first,gender,byear,dyear);
-      person.push_back(i1);
-      if(ins.eof())
-      {
-          break;
-      }
+        if(last == "\0")
+        {
+            getline(ins,last);
+        }
+        getline(ins,first);
+        ins >> gender;
+        ins >> byear;
+        ins >> dyear;
+        Individual i1(last,first,gender,byear,dyear);
+        person.push_back(i1);
+        if(ins.eof())
+        {
+            break;
+        }
     }
     ins.close();
 }
@@ -57,12 +57,11 @@ void People::addIndi(Individual& i1)
     }
     if(CheckIfNewIndi)
     {
-    person.push_back(i1);
-    saveFile(FILENAME);
-
+        person.push_back(i1);
+        saveFile(FILENAME);
     }
     else
-    cout << "This person is already in the database " << endl;
+        cout << "This person is already in the database " << endl;
 }
 Individual People::getIndi(const int i) const
 {
@@ -172,10 +171,10 @@ void People::sortByGender()
     }
     if(ans == 'm' || ans == 'M')
     {
-    cout << "--- Reading males ---" << endl;
-    male.sortAlpabetFront();
-    cout << "--- Reading females ---" << endl;
-    female.sortAlpabetFront();
+        cout << "--- Reading males ---" << endl;
+        male.sortAlpabetFront();
+        cout << "--- Reading females ---" << endl;
+        female.sortAlpabetFront();
     }
     else
     {
@@ -308,11 +307,8 @@ void People::searchBirth()
                         " a 10 year range of given year: " << endl;
                 result2.sortAlpabetFront();
             }
-
-
     }
 }
-
 
 
 void People::searchDeath()
@@ -347,8 +343,6 @@ void People::searchDeath()
                         " a 10 year range of given year: " << endl;
                 result2.sortAlpabetFront();
             }
-
-
     }
 }
 
@@ -372,24 +366,16 @@ People People::removeIndi()
         tempName = person[i].getName() + " " + person[i].getSurname();
         if(tempName != name) {
             removed.person.push_back(person[i]);
-         }
+        }
         else if(tempName == name)
             found = true;
-
-
     }
-    if (found == false)
-<<<<<<< HEAD
+
+    if (found == false) {
         cout << "There is no one named " << name << " on the list." << endl;
-    else
-        cout << name << " was removed." << endl;
-=======
-    {
-     cout << "There is no one named " << name << " on the list." << endl;
-     return *this;
+        return *this;
     }
-    else
-    {
+    else {
         ofstream file;
         file.open("people.txt");
         file << removed;
@@ -397,9 +383,8 @@ People People::removeIndi()
         cout << name <<" was removed"<< endl;
         return removed;
     }
->>>>>>> 8735017332eabf0aeec96e0e4efbe347ed943630
-
 }
+
 ostream& operator << (ostream& outs, People& p1)
 {
     for(unsigned int i = 0; i<p1.person.size();i++)
@@ -409,13 +394,10 @@ ostream& operator << (ostream& outs, People& p1)
         outs << p1.person[i].getGender() << endl;
         outs << p1.person[i].getBirth() << endl;
         if(i == p1.person.size()-1)
-        outs << p1.person[i].getDeath();
+            outs << p1.person[i].getDeath();
         else
-        outs << p1.person[i].getDeath() << endl;
+            outs << p1.person[i].getDeath() << endl;
     }
-
-
     return outs;
-
 }
 
