@@ -18,6 +18,7 @@ void sortMenu(People& p);
 
 int main()
 {
+
     People list(FILENAME);
     char choice;
     do {
@@ -66,6 +67,7 @@ void menu(char ans, People& list)
         default:;
     }
 }
+
 
 void searchMenu(People& p)
 {

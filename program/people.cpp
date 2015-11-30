@@ -269,6 +269,8 @@ void People::searchBirth()
         cout << "No one matched your search." << endl;
 }
 
+
+
 void People::searchDeath()
 {
     bool found = false;
