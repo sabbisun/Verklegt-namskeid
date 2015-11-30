@@ -47,7 +47,16 @@ int People::getSize(){
 void People::addIndi(Individual& i1)
 {
     person.push_back(i1);
-    saveFile("people.txt");     //ætti að vera const string?
+    bool CheckIfNewIndi = true;
+    for(unsigned int i = 0 ; i < person.size(); i++)
+    {
+        if(person[i]==i1)
+        CheckIfNewIndi=false;
+    }
+    if(CheckIfNewIndi)
+    saveFile(FILENAME);
+    else
+    cout << "This person is already in the database " << endl;
 }
 Individual People::getIndi(const int i) const
 {
@@ -349,6 +358,8 @@ People People::removeIndi(People& vec)
 
     cout << "Enter the exact name of the individual that will be removed: ";
     getline(cin, name);     // input as: name surname
+
+    ofstream file("people.txt", ios::trunc);
 
     for (unsigned int i = 0; i < vec.person.size()-1; i++) {
         tempName = vec.person[i].getName() + " " + vec.person[i].getSurname();
