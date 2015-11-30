@@ -25,8 +25,6 @@ public:
     void searchDeath();
     void searchMenu();
     void addIndi(Individual& i1);
-    int getSize();
-    Individual getIndi(const int i) const;
     void swap(const int i, const int j);
     void sortAlpabetFront();
     void sortAlpabetBack();
@@ -34,7 +32,9 @@ public:
     void sortByDeathYear();
     void sortByGender();
     void printVector();
+    int getSize();
     friend ostream& operator << (ostream& outs, People& p1);
+    Individual getIndi(const int i) const;
     People removeIndi();
 
 private:

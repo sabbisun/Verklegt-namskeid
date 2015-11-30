@@ -83,19 +83,6 @@ istream& operator >> (istream& ins, Individual& id)
     return ins;
 }
 
-bool Individual::isDead()
-{
-    if (alive == 1) {
-        //cout << "The individual is alive." << endl
-        return false;
-    }
-    else {
-        //cout << "The individual is dead." << endl
-        //<< "Year of death: " << death << endl;
-        return true;
-    }
-}
-
 string Individual::getName() const {
     return name;
 }

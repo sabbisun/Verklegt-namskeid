@@ -18,7 +18,6 @@ private:
 public:
     Individual();
     Individual(string surnam, string nam, char gend, int bir, int dea);
-    bool isDead();
     friend ostream& operator << (ostream& outs, Individual& id);
     friend istream& operator >> (istream& ins, Individual& id);
     friend bool operator ==(Individual& indi, Individual& indi2); //Check if person already exists in database.
