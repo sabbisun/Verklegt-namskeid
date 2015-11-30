@@ -29,11 +29,13 @@ People::People(const string filename)
     }
     ins.close();
 }
+
 void People::addIndi(Individual& i1)
 {
     person.push_back(i1);
-    saveFile("people.txt");
+    saveFile("people.txt");     //ætti að vera const string?
 }
+
 void People::saveFile(const string filename)
 {
     ofstream outs;
@@ -55,6 +57,7 @@ Individual People::getIndi(const int i) const
 {
     return person[i];
 }
+
 void People::sortAlpabetFront()
 {
      People result(*this);
@@ -66,11 +69,11 @@ void People::sortAlpabetFront()
              {
                 result.swap(j,i);
              }
-
          }
      }
     result.printVector();
 }
+
 void People::sortAlpabetBack()
 {
     People result(*this);
@@ -86,6 +89,7 @@ void People::sortAlpabetBack()
     }
    result.printVector();
 }
+
 void People::sortByBirthYear()
 {
     People result(*this);
@@ -97,11 +101,11 @@ void People::sortByBirthYear()
             {
                result.swap(j,i);
             }
-
         }
     }
    result.printVector();
 }
+
 void People::sortByDeathYear()
 {
     People result(*this);
@@ -113,39 +117,36 @@ void People::sortByDeathYear()
             {
                result.swap(j,i);
             }
-
         }
     }
     result.printVector();
-
 }
+
 void People::sortByGenderMales()
 {
     People r1(*this);
     People male,female;
-    for(unsigned int j = 0; j<r1.person.size(); j++)
-    {
-      if(r1.getIndi(j).getGender() == 'm')
-      male.person.push_back(r1.person[j]);
-      else
-      female.person.push_back(r1.person[j]);
+    for(unsigned int j = 0; j<r1.person.size(); j++) {
+        if(r1.getIndi(j).getGender() == 'm')
+            male.person.push_back(r1.person[j]);
+        else
+            female.person.push_back(r1.person[j]);
     }
     cout << "--- Reading males ---" << endl;
     male.sortAlpabetFront();
     cout << "--- Reading females ---" << endl;
     female.sortAlpabetFront();
-
 }
+
 void People::sortByGenderFemales()
 {
     People r1(*this);
     People male,female;
-    for(unsigned int j = 0; j<r1.person.size(); j++)
-    {
-      if(r1.getIndi(j).getGender() == 'm')
-      male.person.push_back(r1.person[j]);
-      else
-      female.person.push_back(r1.person[j]);
+    for(unsigned int j = 0; j<r1.person.size(); j++) {
+        if(r1.getIndi(j).getGender() == 'm')
+            male.person.push_back(r1.person[j]);
+        else
+            female.person.push_back(r1.person[j]);
     }
     cout << "--- Reading females ---" << endl;
     female.sortAlpabetFront();
@@ -153,12 +154,14 @@ void People::sortByGenderFemales()
     male.sortAlpabetFront();
 
 }
+
 People::People(People& p1)
 {
     for(unsigned int i = 0 ; i < p1.person.size(); i++) {
        person.push_back(p1.person[i]);
     }
 }
+
 void People::swap(const int i, const int j)
 {
     Individual temp = person[i];
@@ -183,11 +186,13 @@ bool People::checkIndiOrder(const Individual& i1, const Individual& i2)
     int t2 = static_cast <int> (c2);
     return(t2>t1);
 }
+
 bool People::checkBirthYearOrder(const Individual& i1, const Individual& i2)
 {
     return(i1.getBirth()>i2.getBirth());
 
 }
+
 bool People::checkDeathYearOrder(const Individual& i1, const Individual& i2)
 {
     return(i1.getDeath()>i2.getDeath());
@@ -196,11 +201,10 @@ bool People::checkDeathYearOrder(const Individual& i1, const Individual& i2)
 
 string People::makeLower(string& temp)
 {
-    //converts temp to all lower letters:
+    //converts string variable temp to all lower letters:
     for (unsigned int i = 0; i < temp.length(); i++) {
         if(isupper(temp[i]))
             temp[i] = tolower(temp[i]);
-
     }
     return temp;
 }
@@ -218,7 +222,6 @@ void People::searchName()
     for(unsigned int i = 0; i < person.size(); i++) {
         tempStr = person[i].getName() + " " + person[i].getSurname();
         tempStr = makeLower(tempStr);
-
         if(tempStr.find(searchStr) != string::npos) {  //if ( . == string::npos) ->not found
             cout << person[i] << endl;
             found = true;
@@ -281,5 +284,38 @@ void People::searchDeath()
     if (found == false)
         cout << "No one matched your search." << endl;
 }
+
+People People::removeIndi(People& vec)
+{
+    People removed;
+    char ans;
+    string name, tempName;
+    bool found = false;
+
+    cout << "Do you want to see the list of all people?(y/n) " << endl;
+    cin >> ans;
+    if (ans == 'y' || ans == 'Y')
+        printVector();
+    cin.ignore();
+
+    cout << "Enter the exact name of the individual that will be removed: ";
+    getline(cin, name);     // input as: name surname
+
+    for (unsigned int i = 0; i < vec.person.size()-1; i++) {
+        tempName = vec.person[i].getName() + " " + vec.person[i].getSurname();
+        if(tempName != name) {
+            removed.person.push_back(vec.person[i]);
+            //removed.addIndi(person[i]);
+            found = true;
+        }
+    }
+    if (found == false)
+        cout << "There is no one named " << name << " on the list." << endl;
+
+    return removed;
+}
+
+
+
 
 

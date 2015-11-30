@@ -33,6 +33,7 @@ public:
     void sortByGenderMales();
     void sortByGenderFemales();
     void printVector();
+    People removeIndi(People& vec);
 
 private:
     vector <Individual> person;

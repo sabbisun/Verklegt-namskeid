@@ -6,15 +6,15 @@ const string FILENAME = "people.txt";
 using namespace std;
 
 bool legalAns(char ans);
-//checks if answear fits choices, if false then programs ends
+//checks if answer fits choices, if false then programs ends
 void ask();
 //asks what should be done with the list
 void menu(char ans, People& list);
 //call for changes to the list
 void searchMenu(People& p);
-//
+//choose what shall be searched for
 void sortMenu(People& p);
-//
+//choose in what order the list shall be printed
 
 int main()
 {
@@ -25,8 +25,6 @@ int main()
         cin >> choice;
         menu(choice, list);
     } while (legalAns(choice));
-
-
 }
 
 
@@ -48,21 +46,23 @@ void menu(char ans, People& list)
     switch(ans) {
         case 'a':
         case 'A':   {
-                    cin.ignore();
-                    Individual id;
-                    cin >> id;
-                    list.addIndi(id);
+                        cin.ignore();
+                        Individual id;
+                        cin >> id;
+                        list.addIndi(id);
                     }
                     break;
         case 'b':
         case 'B':   searchMenu(list);
                     break;
         case 'c':
-        case 'C':   {sortMenu(list);
-                    list.printVector();}
+        case 'C':   {
+                        sortMenu(list);
+                        list.printVector();
+                    }
                     break;
         case 'd':
-        case 'D':   //..
+        case 'D':   list = list.removeIndi(list);
                     break;
         default:;
     }
@@ -96,7 +96,7 @@ void searchMenu(People& p)
     }
 }
 
-void sortMenu(People& p) //spurning hvernig á að vera hægt að sorta
+void sortMenu(People& p)
 {
     char choice;
     cout << "Print/Sort by: " << endl;
@@ -130,6 +130,5 @@ void sortMenu(People& p) //spurning hvernig á að vera hægt að sorta
                     break;
         default:;
     }
-
     p.printVector();
 }
