@@ -17,11 +17,12 @@ ostream& operator << (ostream& outs, Individual& id)
     outs << "Name: " << id.surname << ", " << id.name << endl;
     outs << "Gender: " << id.gender << endl;
     outs << "Year of birth: " << id.birth << endl;
-    if (id.death == 0)
+    if (id.death == 0){
         outs << "The individual is still alive." << endl;
-    else
+    }
+    else{
         outs << "Year of death: " << id.death << endl;
-    
+    }
     return outs;
 }
 
@@ -43,13 +44,35 @@ istream& operator >> (istream& ins, Individual& id)
     getline(ins, id.name);
     cout << "Gender (m/f): ";
     ins >> id.gender;
-    cout << "Year of birth: ";
-    ins >> id.birth;
+
+    do{
+        ins.clear();
+        ins.ignore();
+        cout << "Year of birth: ";
+        ins >> id.birth;
+        if(ins.fail()){
+            cout << endl << "Invalid input!" << endl << "Type again" << endl << endl;
+        }
+    }while(ins.fail());
+
+
     cout << "Is the individual alive?(y/n) ";
     cin >> ans;
     if (ans == 'n') {
-        cout << "Year of death: ";
-        ins >> id.death;
+        do{
+            ins.clear();
+            ins.ignore();
+            cout << "Year of death: ";
+            ins >> id.death;
+            if(ins.fail()){
+                cout << endl << "Invalid input!" << endl << "Type again" << endl << endl;
+            }
+            while(id.birth>id.death){
+                cout<<"Illegal deathyear! Input again: ";
+                ins >>id.death;
+            }
+        }while(ins.fail());
+
         id.alive = 1;
     }
     else {
