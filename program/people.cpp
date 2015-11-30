@@ -55,14 +55,14 @@ void People::addIndi(Individual& i1)
         if(person[i]==i1)
         CheckIfNewIndi=false;
     }
-    if(CheckIfNewIndi)
-    {
-    person.push_back(i1);
-    saveFile(FILENAME);
-
+    if(CheckIfNewIndi){
+        person.push_back(i1);
+        saveFile(FILENAME);
     }
+
+
     else
-    cout << "This person is already in the database " << endl;
+        cout << "This person is already in the database " << endl;
 }
 Individual People::getIndi(const int i) const
 {
@@ -330,7 +330,7 @@ void People::searchDeath()
             result1.person.push_back(person[i]);
             found = true;
         }
-        if (ansYear - 5 <= findYear && ansYear+5 >= findYear) {
+        if (ansYear - 5 <= findYear && ansYear + 5 >= findYear) {
             result2.person.push_back(person[i]);
         }
     }
