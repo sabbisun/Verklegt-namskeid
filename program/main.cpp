@@ -52,7 +52,7 @@ void menu(char ans, People& list)
         case 'P':   sortMenu(list);
                     break;
         case 'r':
-        case 'R':   list = list.removeIndi(list);
+        case 'R':   list = list.removeIndi();
                     break;
         case 'q':
         case 'Q':   exit(1);

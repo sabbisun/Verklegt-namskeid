@@ -42,8 +42,14 @@ istream& operator >> (istream& ins, Individual& id)
     getline(ins, id.surname);
     cout << "Given name: ";
     getline(ins, id.name);
-    cout << "Gender (m/f): ";
-    ins >> id.gender;
+
+    do{
+        cout << "Gender (m/f): ";
+        ins >> id.gender;
+        if(id.gender != 'f' && id.gender != 'm')
+            cout << "Invalid input!" << endl << "Type again" << endl << endl;
+
+    }while(id.gender != 'f' && id.gender != 'm');
 
     do{
         ins.clear();
@@ -54,7 +60,6 @@ istream& operator >> (istream& ins, Individual& id)
             cout << endl << "Invalid input!" << endl << "Type again" << endl << endl;
         }
     }while(ins.fail());
-
 
     cout << "Is the individual alive?(y/n) ";
     cin >> ans;
