@@ -148,7 +148,7 @@ void People::sortByDeathYear()
     {
         for(unsigned int j = 0; j < result.person.size(); j++)
         {
-            if(result.checkDeathYearOrder(result.person[j],result.person[i]))
+            if(result.checkDeathYearOrder(result.person[j],result.person[i]) && result.person[i].getDeath()!=0)
             {
                 result.swap(j,i);
             }
