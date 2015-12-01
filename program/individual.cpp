@@ -70,12 +70,10 @@ istream& operator >> (istream& ins, Individual& id)
             if(ins.fail()) {
                 cout << endl << "Invalid input, please try again!" << endl << endl;
             }
-            while(id.birth>id.death) {
-                cout<<"Illegal deathyear! " << endl;
-                cout << "Input again: ";
-                ins >>id.death;
+            if(id.birth>id.death) {
+                cout<<"Illegal deathyear! Input again: "<<endl<<endl;
             }
-        } while(ins.fail());
+        } while(ins.fail()||id.birth>id.death);
 
         id.alive = 1;
     }
