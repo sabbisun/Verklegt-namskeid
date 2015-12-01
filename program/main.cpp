@@ -96,7 +96,6 @@ void searchMenu(People& p)
         case 'M':
         case 'm':
                     break;
-
         case 'q':
         case 'Q':   exit(1);
                     break;
