@@ -403,7 +403,7 @@ People People::removeIndi()
     string name, tempName;
     bool found = false;
 
-    cout << "Do you want to see the list of all people?(y/n) " << endl;
+    cout << endl << "Do you want to see the list of all people?(y/n) " << endl;
     cin >> ans;
     if (ans == 'y' || ans == 'Y')
         printVector();
