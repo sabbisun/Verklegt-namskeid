@@ -91,7 +91,7 @@ void People::saveFile(const string filename)
 
 void People::sortAlpabetFront()
 {
-    cout << endl << "--- Printing by alphabetical order --- " << endl;
+    //cout << endl << "--- Printing by alphabetical order --- " << endl;
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
     {
@@ -108,7 +108,7 @@ void People::sortAlpabetFront()
 
 void People::sortAlpabetBack()
 {
-    cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
+    //cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
     {
@@ -125,7 +125,7 @@ void People::sortAlpabetBack()
 
 void People::sortByBirthYear()
 {
-    cout << endl << "--- Printing by year of Birth --- " << endl;
+    //cout << endl << "--- Printing by year of Birth --- " << endl;
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
     {
@@ -142,7 +142,7 @@ void People::sortByBirthYear()
 
 void People::sortByDeathYear()
 {
-    cout << endl << "--- Printing by year of Death --- " << endl;
+    //cout << endl << "--- Printing by year of Death --- " << endl;
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
     {

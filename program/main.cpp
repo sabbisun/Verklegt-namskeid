@@ -121,16 +121,20 @@ void sortMenu(People& p)
 
     switch(choice) {
         case 'a':
-        case 'A':   p.sortAlpabetFront();
+        case 'A':   cout << endl << "--- Printing by alphabetical order --- " << endl;
+                    p.sortAlpabetFront();
                     break;
         case 'r':
-        case 'R':   p.sortAlpabetBack();
+        case 'R':   cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
+                    p.sortAlpabetBack();
                     break;
         case 'b':
-        case 'B':   p.sortByBirthYear();
+        case 'B':   cout << endl << "--- Printing by year of Birth --- " << endl;
+                    p.sortByBirthYear();
                     break;
         case 'd':
-        case 'D':   p.sortByDeathYear();
+        case 'D':   cout << endl << "--- Printing by year of Death --- " << endl;
+                    p.sortByDeathYear();
                     break;
         case 'g':
         case 'G':   p.sortByGender();
