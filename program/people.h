@@ -16,7 +16,8 @@ class People
 {
 public:
     People(const string filename);
-    People(People& p1);
+    People(const People& p1);
+    //copy constructor
     People();
     //functions used to search for individuals in vector with specific traits:
     void searchName();
@@ -33,15 +34,16 @@ public:
 
     void addIndi(Individual& i1);
     //adds and individual to vector
-    int getSize();
+    int getSize() const;
     //returns the size of the vector
     People removeIndi();
     //removes an individual from the database, returns a new variable People
     //with a vector containing every individual except the removed one
-
     friend ostream& operator << (ostream& outs, People& p1);
     Individual getIndi(const int i) const;
     void swap(const int i, const int j);
+    //takes in two indexis of the person vector and swaps two individuals
+    //who belong to these indexes in the vector
     void printVector();
 private:
     vector <Individual> person;

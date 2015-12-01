@@ -4,7 +4,7 @@ Individual::Individual() {
 
 }
 
-Individual::Individual(string surnam, string nam, char gend, int bir, int dea)
+Individual::Individual(const string surnam, const string nam, const char gend, const int bir, const int dea)
 {
     name = nam;
     surname = surnam;

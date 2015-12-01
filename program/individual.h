@@ -17,7 +17,7 @@ private:
     bool alive;
 public:
     Individual();
-    Individual(string surnam, string nam, char gend, int bir, int dea);
+    Individual(const string surnam, const string nam, const char gend, const int bir, const int dea);
 
     friend ostream& operator << (ostream& outs, Individual& id);
     friend istream& operator >> (istream& ins, Individual& id);

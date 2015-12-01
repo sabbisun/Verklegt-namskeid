@@ -36,18 +36,16 @@ People::People(const string filename)
     ins.close();
 }
 
-People::People(People& p1)
+People::People(const People& p1)
 {
     for(unsigned int i = 0 ; i < p1.person.size(); i++) {
        person.push_back(p1.person[i]);
     }
 }
 
-int People::getSize()
+int People::getSize() const
 {
-    int tala;
-    tala=person.size();
-    return tala;
+    return(person.size());
 }
 
 void People::addIndi(Individual& i1)
@@ -125,7 +123,6 @@ void People::sortAlpabetBack()
 
 void People::sortByBirthYear()
 {
-    //cout << endl << "--- Printing by year of Birth --- " << endl;
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
     {
@@ -142,7 +139,6 @@ void People::sortByBirthYear()
 
 void People::sortByDeathYear()
 {
-    //cout << endl << "--- Printing by year of Death --- " << endl;
     People result(*this);
     People dead, alive;
     for(unsigned int i = 1 ; i < result.person.size(); i++)
@@ -175,7 +171,7 @@ void People::sortByGender()
     People r1(*this);
     People male,female;
     char ans;
-    cout << "Do you want to sort by male(m) or female(f) ? " ;
+    cout << "Do you want to sort by male(m) or female(f)? " ;
     cin >> ans;
     for(unsigned int j = 0; j<r1.person.size(); j++) {
         if(r1.getIndi(j).getGender() == 'm')
@@ -348,6 +344,7 @@ void People::searchBirth()
                 {
                     cout << "However these individuals were found within"
                             " a 10 year range of given year: " << endl;
+                    cout << "--- Printing by alphabetical order ---" << endl;
                     result2.sortAlpabetFront();
                 }
         }
