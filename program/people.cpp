@@ -144,17 +144,32 @@ void People::sortByDeathYear()
 {
     //cout << endl << "--- Printing by year of Death --- " << endl;
     People result(*this);
-    for(unsigned int i = 1 ; i < result.person.size(); i++)
+    People dead, alive;
+
+    for(unsigned int i = 0; i < result.person.size(); i++)
     {
-        for(unsigned int j = 0; j < result.person.size(); j++)
+        if(result.person[i].getDeath()!=0)
         {
-            if(result.checkDeathYearOrder(result.person[j],result.person[i]) && result.person[i].getDeath()!=0)
+            dead.person.push_back(result.getIndi(i));
+        }
+        else
+        {
+            alive.person.push_back(result.getIndi(i));
+        }
+    }
+
+    for(unsigned int i = 1 ; i < dead.person.size(); i++)
+    {
+        for(unsigned int j = 0; j < dead.person.size(); j++)
+        {
+            if(result.checkDeathYearOrder(dead.person[j],result.person[i]) && dead.person[i].getDeath()!=0)
             {
-                result.swap(j,i);
+                dead.swap(j,i);
             }
         }
     }
-    result.printVector();
+    dead.printVector();
+    alive.sortAlpabetFront();
 }
 
 void People::sortByGender()
