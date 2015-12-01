@@ -145,7 +145,16 @@ void People::sortByDeathYear()
     //cout << endl << "--- Printing by year of Death --- " << endl;
     People result(*this);
     People dead, alive;
-
+    for(unsigned int i = 1 ; i < result.person.size(); i++)
+    {
+        for(unsigned int j = 0; j < result.person.size(); j++)
+        {
+            if(result.checkDeathYearOrder(result.person[j],result.person[i]))
+            {
+                result.swap(j,i);
+            }
+        }
+    }
     for(unsigned int i = 0; i < result.person.size(); i++)
     {
         if(result.person[i].getDeath()!=0)
@@ -155,17 +164,6 @@ void People::sortByDeathYear()
         else
         {
             alive.person.push_back(result.getIndi(i));
-        }
-    }
-
-    for(unsigned int i = 1 ; i < dead.person.size(); i++)
-    {
-        for(unsigned int j = 0; j < dead.person.size(); j++)
-        {
-            if(result.checkDeathYearOrder(dead.person[j],result.person[i]) && dead.person[i].getDeath()!=0)
-            {
-                dead.swap(j,i);
-            }
         }
     }
     dead.printVector();
