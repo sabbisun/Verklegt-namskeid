@@ -75,6 +75,7 @@ void searchMenu(People& p)
          << "(G) Gender" << endl
          << "(B) Year of Birth" << endl
          << "(D) Year of Death" << endl
+         << "(M) Return to Menu" << endl
          << "(Q) Quit program " << endl;
     cout << "Select a letter: ";
     cin >> choice;
@@ -92,6 +93,10 @@ void searchMenu(People& p)
         case 'd':
         case 'D':   p.searchDeath();
                     break;
+        case 'M':
+        case 'm':
+                    break;
+
         case 'q':
         case 'Q':   exit(1);
                     break;
@@ -102,7 +107,6 @@ void searchMenu(People& p)
 
 void sortMenu(People& p)
 {
-    cout << endl;
     char choice;
     cout << endl;
     cout << "Print/Sort by: " << endl;
@@ -111,6 +115,7 @@ void sortMenu(People& p)
          << "(B) Year of Birth" << endl
          << "(D) Year of Death" << endl
          << "(G) Gender" << endl
+         << "(M) Return to Menu" << endl
          << "(Q) Quit program " << endl;
     cout << "Select a letter: ";
     cin >> choice;
@@ -130,6 +135,9 @@ void sortMenu(People& p)
                     break;
         case 'g':
         case 'G':   p.sortByGender();
+                    break;
+        case 'M':
+        case 'm':
                     break;
         case 'q':
         case 'Q':   exit(1);
