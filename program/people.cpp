@@ -55,7 +55,7 @@ void People::addIndi(Individual& i1)
     bool CheckIfNewIndi = true;
     for(unsigned int i = 0 ; i < person.size(); i++) {
         if(person[i]==i1)
-        CheckIfNewIndi=false;
+            CheckIfNewIndi=false;
     }
     if(CheckIfNewIndi) {
         person.push_back(i1);
@@ -277,6 +277,7 @@ void People::searchGender()
     People result;
     bool found = false;
     char findGender, ansGender;
+    cout << endl;
     cout << "Enter which gender you want to search for (m/f): ";
     cin >> ansGender;
     cout << endl;
@@ -286,7 +287,7 @@ void People::searchGender()
         for (unsigned int i = 0; i < person.size(); i++)
         {
             findGender = person[i].getGender();
-            if (ansGender == findGender) {
+            if (tolower(ansGender) == tolower(findGender)) {
                 result.person.push_back(person[i]);
                 found = true;
             }

@@ -94,8 +94,8 @@ void searchMenu(People& p)
         case 'D':   p.searchDeath();
                     break;
         case 'M':
-        case 'm':   break;
-
+        case 'm':
+                    break;
         case 'q':
         case 'Q':   exit(1);
                     break;
