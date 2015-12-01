@@ -92,17 +92,17 @@ void People::saveFile(const string filename)
 void People::sortAlpabetFront()
 {
     cout << endl << "--- Printing by alphabetical order --- " << endl;
-     People result(*this);
-     for(unsigned int i = 1 ; i < result.person.size(); i++)
-     {
-         for(unsigned int j = 0; j < result.person.size(); j++)
-         {
-             if(result.checkIndiOrder(result.person[i],result.person[j]))
-             {
+    People result(*this);
+    for(unsigned int i = 1 ; i < result.person.size(); i++)
+    {
+        for(unsigned int j = 0; j < result.person.size(); j++)
+        {
+            if(result.checkIndiOrder(result.person[i],result.person[j]))
+            {
                 result.swap(j,i);
-             }
-         }
-     }
+            }
+        }
+    }
     result.printVector();
 }
 
@@ -296,14 +296,13 @@ void People::searchGender()
     }
     else
     {
-     cout << "Incorrect input, please try again!" << endl;
-     this->searchGender();
+        cout << "Incorrect input, please try again!" << endl;
+        this->searchGender();
     }
     if (found == false)
     {
         cout << "No one matched your search!" << endl;
     }
-
 }
 
 void People::searchBirth()
@@ -315,7 +314,7 @@ void People::searchBirth()
     cin >> ansYear;
     if(!cin.fail())
     {
-         cout << "--- The following people match your search ---" << endl;
+        cout << "--- The following people match your search ---" << endl;
         for (unsigned int i = 0; i < person.size(); i++) {
             findYear = person[i].getBirth();
             if (ansYear == findYear) {
@@ -346,11 +345,9 @@ void People::searchBirth()
         cin.clear();
         cin.ignore();
         this->searchBirth();
-
-     }
+    }
 
 }
-
 
 void People::searchDeath()
 {
@@ -392,9 +389,9 @@ void People::searchDeath()
         cout << "Incorrect input, please try again!" << endl;
         cin.clear();
         cin.ignore();
-         this->searchDeath();
+        this->searchDeath();
 
-     }
+    }
 }
 
 People People::removeIndi()

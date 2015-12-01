@@ -105,5 +105,3 @@ int Individual::getBirth() const {
 int Individual::getDeath() const {
     return death;
 }
-
-

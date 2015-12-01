@@ -136,8 +136,8 @@ void sortMenu(People& p)
         case 'G':   p.sortByGender();
                     break;
         case 'M':
-        case 'm':
-                    break;
+        case 'm':   break;
+
         case 'q':
         case 'Q':   exit(1);
                     break;
