@@ -28,10 +28,6 @@ People::People(const string filename)
         ins >> dyear;
         Individual i1(last,first,gender,byear,dyear);
         person.push_back(i1);
-        if(ins.eof())
-        {
-            break;
-        }
     }
     ins.close();
 }
@@ -261,7 +257,7 @@ void People::searchName()
 {
     bool found = false;
     string tempStr, searchStr = "";
-    cin.ignore();
+    cin.ignore();   //annars virkar getline ekki
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
     searchStr = makeLower(searchStr);
