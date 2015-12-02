@@ -25,7 +25,7 @@ ostream& operator << (ostream& outs, Individual& id)
     return outs;
 }
 
-bool operator == (Individual& indi, Individual& indi2)
+bool operator == (const Individual& indi, const Individual& indi2)
 {
     if (indi.birth == indi2.birth && indi.death == indi2.death && indi.surname == indi2.surname
        && indi.gender == indi2.gender && indi.name == indi2.name)

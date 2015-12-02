@@ -89,7 +89,6 @@ void People::saveFile(const string filename)
 
 void People::sortAlpabetFront()
 {
-    //cout << endl << "--- Printing by alphabetical order --- " << endl;
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
     {
@@ -106,7 +105,6 @@ void People::sortAlpabetFront()
 
 void People::sortAlpabetBack()
 {
-    //cout << endl << "--- Printing by reverse alphabetical order --- " << endl;
     People result(*this);
     for(unsigned int i = 1 ; i < result.person.size(); i++)
     {
@@ -174,7 +172,7 @@ void People::sortByGender()
     cout << "Do you want to sort by male(m) or female(f)? " ;
     cin >> ans;
     for(unsigned int j = 0; j<r1.person.size(); j++) {
-        if(r1.getIndi(j).getGender() == 'm')
+        if(r1.getIndi(j).getGender() == 'm' || r1.getIndi(j).getGender()=='M')
             male.person.push_back(r1.person[j]);
         else
             female.person.push_back(r1.person[j]);
@@ -263,7 +261,7 @@ void People::searchName()
 {
     bool found = false;
     string tempStr, searchStr = "";
-    cin.ignore();   //annars virkar getline ekki
+    cin.ignore();
     cout << "Enter a name to search for: " ;
     getline(cin, searchStr);
     searchStr = makeLower(searchStr);

@@ -24,7 +24,6 @@ public:
     void searchGender();
     void searchBirth();
     void searchDeath();
-    void searchMenu();
     //sort vector by the specified order:
     void sortAlpabetFront();
     void sortAlpabetBack();
